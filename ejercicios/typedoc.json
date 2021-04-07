@@ -1,0 +1,6 @@
+{
+  "entryPoints": [
+    "./src/modi-1.ts"
+  ],
+  "out": "./typeDocs"
+}
