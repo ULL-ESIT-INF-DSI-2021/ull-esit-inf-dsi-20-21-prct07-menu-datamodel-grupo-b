@@ -1,13 +1,15 @@
 // Clase Plato.
 
 import {Ingredient} from './practica-7';
+import {ingredient} from './practica-7';
 
-export const enum topoPlato {'entrante', 'primer plato', 'segundo plato',
+/*
+export const enum tipoPlato {'entrante', 'primer plato', 'segundo plato',
                              'postre'};
+*/
+//tipoPlato.['primer plato']
 
 export const enum tipoPlato {ENTRANTE, PRIMER_PLATO, SEGUNDO_PLATO, POSTRE};              
-
-//tipoPlato.['primer plato']
 
 export class Dish {
   private Ingredients: Map<Ingredient, number>;

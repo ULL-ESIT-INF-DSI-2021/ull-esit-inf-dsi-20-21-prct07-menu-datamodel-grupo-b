@@ -1,14 +1,16 @@
 import 'mocha';
 import {expect} from 'chai';
 
-import {Ingredient} from '../src/practica-7'; // El nombre hay que cambiarlo.
+import {Ingredient} from '../src/practica-7'; // El nombre creo que hay que cambiarlo.
+import {ingredient} from '../src/practica-7';
+
 import {tipoPlato} from '../src/claseDish';
-import {topoPlato} from '../src/claseDish';
 import {Dish} from '../src/claseDish';
 
 describe('Test block class Dish', () => {
   const tomates = new Ingredient('tomates', 'La Matanza', 4, 1, 2, 3, 32, 1.02);
-  const ajos = new Ingredient('ajos', 'La Matanza', 1, 4, 7, 8, 17, 0.62);
+  const ajos = new Ingredient('ajos', 'La Orotava', 1, 4, 7, 8, 17, 0.62);
+  const albahaca = new Ingredient('albahaca', 'Tegueste', 1, 1, 1, 1, 9, 1.79);
   const espaguetis = new Ingredient('espaguetis', 'La Matanza', 3, 1, 2, 3, 32,
     1.02);
 
@@ -42,8 +44,19 @@ describe('Test block class Dish', () => {
     plato1.addIngredient([ajos, 25]);
     expect(plato1.numberOfIngredients()).equal(3);
 
-    // Can't add the same ingredient two o more times.
+    // Can't add the same ingredient more than once. 
     plato1.addIngredient([tomates, 11]);
     expect(plato1.numberOfIngredients()).equal(3);
+  });
+
+  it('predominantGroup() various tests', () => {
+    // The predominant ingrediente group is none.
+    expect(plato1.predominantGroup()).to.be.equal(-1);
+
+    plato1.addIngredient([albahaca, 28]);
+
+    // Predominant ingredient now is 1 (vegetables and greens)
+    expect(plato1.predominantGroup()).to.be.equal(1);
+    expect(plato1.predominantGroup()).to.be.equal(ingredient.group2);
   });
 });

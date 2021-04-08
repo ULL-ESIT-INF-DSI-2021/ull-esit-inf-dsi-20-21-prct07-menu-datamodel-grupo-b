@@ -64,4 +64,9 @@ export class Ingredient {
     getName() {
         return this.name;
     }
+
+    // Método implementado para hacer pruebas clase Dish. 
+    getGroup() {
+        return this.group;
+    }
 }
