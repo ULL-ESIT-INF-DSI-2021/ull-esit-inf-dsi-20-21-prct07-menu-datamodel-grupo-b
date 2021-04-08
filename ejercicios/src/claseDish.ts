@@ -47,4 +47,11 @@ export class Dish {
   numberOfIngredients(): number {
     return this.Ingredients.size;
   }
+
+  addIngredient(ingredient: [Ingredient, number]): void {
+    // If the same exact ingredient doesn't exists inside the map.
+    if(!this.Ingredients.get(ingredient[0])) {
+      this.Ingredients.set(ingredient[0], ingredient[1]);
+    }
+  }
 }
