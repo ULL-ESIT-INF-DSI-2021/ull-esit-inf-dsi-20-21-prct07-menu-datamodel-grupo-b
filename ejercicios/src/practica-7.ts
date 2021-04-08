@@ -59,4 +59,9 @@ export class Ingredient {
     ) {
         this.nutritionalComposition = [["carbohydrates", carbohydrates], ["protein", protein], ["lipids", lipids]];
     }
+
+    // Método implementado para hacer pruebas clase Dish. 
+    getName() {
+        return this.name;
+    }
 }
