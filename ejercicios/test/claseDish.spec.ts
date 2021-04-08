@@ -37,4 +37,13 @@ describe('Test block class Dish', () => {
   it('numberOfIngredients gets 2', () => {
     expect(plato1.numberOfIngredients()).equal(2);
   });
+
+  it('addIngredient() various tests', () => {
+    plato1.addIngredient([ajos, 25]);
+    expect(plato1.numberOfIngredients()).equal(3);
+
+    // Can't add the same ingredient two o more times.
+    plato1.addIngredient([tomates, 11]);
+    expect(plato1.numberOfIngredients()).equal(3);
+  });
 });
