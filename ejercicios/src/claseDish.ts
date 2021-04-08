@@ -56,4 +56,52 @@ export class Dish {
       this.Ingredients.set(ingredient[0], ingredient[1]);
     }
   }
+
+  predominantGroup(): ingredient {
+    let counters = [];
+    // With this we get the number of entries in a non-string enumerable in
+    // Typescript.
+    let enumLength = (Object.entries(ingredient)).length / 2;
+    let result: number = 0;
+    let maximum: number = -1;
+
+    // Create an array the same size enum "ingredient", full of 0's
+    for(let i = 0; i < enumLength; ++i) {
+      counters.push(0);
+    }
+
+    let iterator: IterableIterator<Ingredient> = this.Ingredients.keys();
+
+    let actualElement: IteratorResult<Ingredient> = iterator.next();
+
+    // Calculating number of ingredients by group
+    while(!actualElement.done) {
+      const aux = actualElement.value.getGroup();
+      ++counters[aux];
+
+      actualElement = iterator.next();
+    }
+
+    // Getting the maximum value of the array and its 
+    // supossedly position 
+    for(let i = 0; i < counters.length; ++i) {
+      if(counters[i]> maximum) {
+        maximum = counters[i];
+        result = i;
+      }
+    }
+
+    // Checking if the maximum value is unique
+    function checkMaximumUnique(valuePosition: number) {
+      return valuePosition == maximum;
+    }
+    
+    // If there is more than a maximum value... there is no
+    // maximum value in reality.
+    if (counters.filter(checkMaximumUnique).length > 1) {
+      return -1;
+    }
+
+    return result;
+  }
 }
