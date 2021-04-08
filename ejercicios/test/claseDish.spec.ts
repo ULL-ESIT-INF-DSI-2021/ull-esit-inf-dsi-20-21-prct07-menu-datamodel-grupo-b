@@ -8,6 +8,7 @@ import {Dish} from '../src/claseDish';
 
 describe('Test block class Dish', () => {
   const tomates = new Ingredient('tomates', 'La Matanza', 4, 1, 2, 3, 32, 1.02);
+  const ajos = new Ingredient('ajos', 'La Matanza', 1, 4, 7, 8, 17, 0.62);
   const espaguetis = new Ingredient('espaguetis', 'La Matanza', 3, 1, 2, 3, 32,
     1.02);
 
@@ -31,5 +32,9 @@ describe('Test block class Dish', () => {
     expect(ingredients[1][0].getName()).to.be.equal('espaguetis');
     // Second ingredient weight
     expect(ingredients[1][1]).to.be.equal(80);
+  });
+
+  it('numberOfIngredients gets 2', () => {
+    expect(plato1.numberOfIngredients()).equal(2);
   });
 });
