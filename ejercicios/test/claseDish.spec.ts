@@ -8,14 +8,16 @@ import {tipoPlato} from '../src/claseDish';
 import {Dish} from '../src/claseDish';
 
 describe('Test block class Dish', () => {
-  const tomates = new Ingredient('tomates', 'La Matanza', 4, 1, 2, 3, 32, 1.02);
-  const ajos = new Ingredient('ajos', 'La Orotava', 1, 4, 7, 8, 17, 0.62);
-  const albahaca = new Ingredient('albahaca', 'Tegueste', 1, 1, 1, 1, 9, 1.79);
-  const espaguetis = new Ingredient('espaguetis', 'La Matanza', 3, 1, 2, 3, 32,
-    1.02);
+  const tomates = new Ingredient('tomates', 'La Matanza', 4, 16, 12, 18, 32, 1.02);
+  const ajos = new Ingredient('ajos', 'La Orotava', 1, 22, 24, 26, 17, 0.62);
+  const albahaca = new Ingredient('albahaca', 'Tegueste', 1, 32, 40, 16, 9, 1.79);
+  const espaguetis = new Ingredient('espaguetis', 'La Matanza', 3, 11, 12, 15,
+    32, 1.02);
 
   const plato1 = new Dish([[tomates, 12], [espaguetis, 80]],
     tipoPlato.PRIMER_PLATO);
+
+  const plato2 = new Dish([[tomates, 175]], tipoPlato.ENTRANTE);
 
   it('getDishType gets "PRIMER_PLATO"', () => {
     expect(plato1.getDishType()).to.be.equal(tipoPlato.PRIMER_PLATO);
@@ -58,5 +60,10 @@ describe('Test block class Dish', () => {
     // Predominant ingredient now is 1 (vegetables and greens)
     expect(plato1.predominantGroup()).to.be.equal(1);
     expect(plato1.predominantGroup()).to.be.equal(ingredient.group2);
+  });
+
+  it('nutritionalComposition() test', () => {
+    // We can use the method .within() if the values have a lot of decimals.
+    expect(plato2.nutritionalComposition()).eql([28, 21, 31.5]);
   });
 });

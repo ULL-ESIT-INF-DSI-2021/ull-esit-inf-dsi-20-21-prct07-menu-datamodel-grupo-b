@@ -69,4 +69,24 @@ export class Ingredient {
     getGroup() {
         return this.group;
     }
+
+    // Método implementado para hacer pruebas clase Dish. 
+    getProteins() {
+        return this.protein;
+    }
+
+    // Método implementado para hacer pruebas clase Dish. 
+    getCarbohydrates() {
+        return this.carbohydrates;
+    }
+
+    // Método implementado para hacer pruebas clase Dish. 
+    getLipids() {
+        return this.lipids;
+    }
+
+    // Método implementado para hacer pruebas clase Dish. 
+    getPrice() {
+        return this.price;
+    }
 }
