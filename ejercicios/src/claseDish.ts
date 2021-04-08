@@ -14,13 +14,14 @@ export const enum tipoPlato {ENTRANTE, PRIMER_PLATO, SEGUNDO_PLATO, POSTRE};
 export class Dish {
   private Ingredients: Map<Ingredient, number>;
 
-  constructor(ingredients: [Ingredient, number][], private plato: tipoPlato ) {
+  constructor(ingredients: [Ingredient, number][],
+      private plato: tipoPlato ) {
     this.Ingredients = new Map;
 
     ingredients.forEach((element) => this.Ingredients.set(element[0],
       element[1]));
   }
-
+  
   getIngredients(): [Ingredient, number][] {
     let allIngredients: [Ingredient, number][] = [];
 

@@ -14,10 +14,15 @@ describe('Test block class Dish', () => {
   const espaguetis = new Ingredient('espaguetis', 'La Matanza', 3, 11, 12, 15,
     32, 1.02);
 
-  const plato1 = new Dish([[tomates, 12], [espaguetis, 80]],
-    tipoPlato.PRIMER_PLATO);
+  const plato1 = new Dish('Espaguetis en salsa', [[tomates, 12],
+    [espaguetis, 80]], tipoPlato.PRIMER_PLATO);
 
-  const plato2 = new Dish([[tomates, 175]], tipoPlato.ENTRANTE);
+  const plato2 = new Dish('Tomates aliñados', [[tomates, 175]],
+    tipoPlato.ENTRANTE);
+
+  it('getDishName gets "Espaguetis en salsa"', () => {
+    expect(plato1.getDishName()).to.be.equal('Espaguetis en salsa');
+  });
 
   it('getDishType gets "PRIMER_PLATO"', () => {
     expect(plato1.getDishType()).to.be.equal(tipoPlato.PRIMER_PLATO);
