@@ -104,4 +104,22 @@ export class Dish {
 
     return result;
   }
+
+  nutritionalComposition(): [number, number, number] {
+    const ingredients = [...this.Ingredients.keys()];
+    const entries = [...this.Ingredients.entries()];
+
+
+    let totalCarbohydrates = 0; 
+    let totalProteins = 0;
+    let totalLipids = 0;
+
+    entries.forEach((element) => {
+      totalCarbohydrates += (element[0].getCarbohydrates() / 100) * element[1];
+      totalProteins += (element[0].getProteins() / 100) * element[1];
+      totalLipids += (element[0].getLipids() / 100) * element[1];
+    });
+
+    return [totalCarbohydrates, totalProteins, totalLipids];
+  }
 }
