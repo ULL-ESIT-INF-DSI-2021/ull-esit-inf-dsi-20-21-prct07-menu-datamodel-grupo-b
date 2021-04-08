@@ -43,4 +43,8 @@ export class Dish {
   getDishType(): tipoPlato {
     return this.plato;
   }
+
+  numberOfIngredients(): number {
+    return this.Ingredients.size;
+  }
 }
