@@ -81,4 +81,10 @@ describe('Test block class Dish', () => {
 
     expect(plato1.numberOfIngredients()).equal(3);
   });
+
+  it('deleteIngredient() deletes albahaca ingredient', () => {
+    plato1.deleteIngredient(albahaca);
+
+    expect(plato1.numberOfIngredients()).equal(2);
+  });
 });
