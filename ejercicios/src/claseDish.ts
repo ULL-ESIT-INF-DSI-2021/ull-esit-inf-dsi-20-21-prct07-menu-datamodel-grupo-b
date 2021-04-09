@@ -126,4 +126,15 @@ export class Dish {
 
     return [totalCarbohydrates, totalProteins, totalLipids];
   }
+
+  totalPrice(): number {
+    const entries = [...this.Ingredients.entries()];
+    let total = 0;
+
+    entries.forEach((element) => {
+      total += (element[1] / 1000) * element[0].getPrice();
+    });
+
+    return total;
+  }
 }
