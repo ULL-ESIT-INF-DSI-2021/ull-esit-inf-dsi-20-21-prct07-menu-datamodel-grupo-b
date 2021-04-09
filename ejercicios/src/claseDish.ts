@@ -137,4 +137,21 @@ export class Dish {
 
     return total;
   }
+
+  deleteIngredientByName(ingredientName: string): void {
+    let ingredientsToRemove: Ingredient[] = [];
+    const entries = [...this.Ingredients.entries()];
+
+    // Get all the ingredients with the same name as the argument and store
+    // them in an array.
+    entries.forEach((element) => {
+      if(element[0].getName() == ingredientName) {
+        ingredientsToRemove.push(element[0]);
+      }
+    });
+
+    for(let i = 0; i < ingredientsToRemove.length; ++i) {
+      this.Ingredients.delete(ingredientsToRemove[i]);
+    }
+  }
 }
