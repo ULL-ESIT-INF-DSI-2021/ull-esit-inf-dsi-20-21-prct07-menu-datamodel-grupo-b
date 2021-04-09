@@ -1,6 +1,7 @@
 {
   "entryPoints": [
-    "./src/modi-1.ts"
+    "./src/modi-1.ts",
+    "./src/claseDish.ts"
   ],
   "out": "./typeDocs"
 }
