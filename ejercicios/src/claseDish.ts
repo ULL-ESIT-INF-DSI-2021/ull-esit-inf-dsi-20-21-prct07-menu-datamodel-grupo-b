@@ -154,4 +154,8 @@ export class Dish {
       this.Ingredients.delete(ingredientsToRemove[i]);
     }
   }
+
+  deleteIngredient(ingr: Ingredient): void {
+    this.Ingredients.delete(ingr);
+  }
 }
