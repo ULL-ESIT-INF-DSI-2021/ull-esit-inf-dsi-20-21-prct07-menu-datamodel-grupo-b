@@ -75,4 +75,10 @@ describe('Test block class Dish', () => {
   it('totalPrice() gets 0.15946', () => {
     expect(plato1.totalPrice()).within(0.15946, 0.15947);
   });
+
+  it('deleteIngredientByName() deletes "ajos" ingredient', () => {
+    plato1.deleteIngredientByName('ajos');
+
+    expect(plato1.numberOfIngredients()).equal(3);
+  });
 });
