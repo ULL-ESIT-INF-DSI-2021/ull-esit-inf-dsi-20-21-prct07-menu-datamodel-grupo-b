@@ -14,7 +14,7 @@ export const enum tipoPlato {ENTRANTE, PRIMER_PLATO, SEGUNDO_PLATO, POSTRE};
 export class Dish {
   private Ingredients: Map<Ingredient, number>;
 
-  constructor(private name: string, ingredients: [Ingredient, number][],
+  constructor(private dishName: string, ingredients: [Ingredient, number][],
       private plato: tipoPlato ) {
     this.Ingredients = new Map;
 
@@ -23,7 +23,7 @@ export class Dish {
   }
 
   getDishName() {
-    return this.name;
+    return this.dishName;
   }
   
   getIngredients(): [Ingredient, number][] {
@@ -111,7 +111,6 @@ export class Dish {
   }
 
   nutritionalComposition(): [number, number, number] {
-    const ingredients = [...this.Ingredients.keys()];
     const entries = [...this.Ingredients.entries()];
 
 

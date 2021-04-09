@@ -71,4 +71,8 @@ describe('Test block class Dish', () => {
     // We can use the method .within() if the values have a lot of decimals.
     expect(plato2.nutritionalComposition()).eql([28, 21, 31.5]);
   });
+
+  it('totalPrice() gets 0.15946', () => {
+    expect(plato1.totalPrice()).within(0.15946, 0.15947);
+  });
 });
