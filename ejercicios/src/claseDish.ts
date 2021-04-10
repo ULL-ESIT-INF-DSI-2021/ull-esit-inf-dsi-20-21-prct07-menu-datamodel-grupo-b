@@ -1,7 +1,7 @@
 // Clase Plato.
 
-import {Ingredient} from './practica-7';
-import {ingredient} from './practica-7';
+import {Ingredient} from './classIngredient';
+import {ingredient} from './classIngredient';
 
 /**
  * @enum Defines what kind of dish is.
