@@ -1,8 +1,8 @@
 import 'mocha';
 import {expect} from 'chai';
 
-import {Ingredient} from '../src/practica-7'; // El nombre creo que hay que cambiarlo.
-import {ingredient} from '../src/practica-7';
+import {Ingredient} from '../src/classIngredient'; // El nombre creo que hay que cambiarlo.
+import {ingredient} from '../src/classIngredient';
 
 import {tipoPlato} from '../src/claseDish';
 import {Dish} from '../src/claseDish';
