@@ -6,7 +6,7 @@ import {tipoPlato} from '../src/claseDish';
 import {Ingredient} from '../src/classIngredient';
 import {Menu} from '../src/classMenu';
 
-describe('Test block class Manu', () => {
+describe('Test block class Menu', () => {
     const ingr1 = new Ingredient('tomates', 'La Matanza', 4, 16, 12, 18, 32, 1.02);
     const ingr2 = new Ingredient('ajos', 'La Orotava', 1, 22, 24, 26, 17, 0.62);
     const ingr3 = new Ingredient('chocolate', 'Tegueste', 1, 32, 40, 16, 9, 1.79);
@@ -24,7 +24,7 @@ describe('Test block class Manu', () => {
   
   
     it('getPrice in menu1', () => {
-      expect(menu1.price).to.be.equal(1.15);
+      expect(menu1.price).to.be.equal('1.15');
     });
   /*
     it('getDishes in menu1', () => {
@@ -33,11 +33,11 @@ describe('Test block class Manu', () => {
     });
   */
     it('getNutritionalComposition in menu2', () => {
-      expect(menu2.nutritionalComposition()).equal([ 150.72, 172.04, 101.66 ]);
+      expect(menu2.nutritionalComposition()).to.have.members([ 150.72, 172.04, 101.66 ]);
     });
   
     it('foodGroupList in menu1', () => {
-      expect(menu1.foodGroupList()).equal([ 4, -1, 3, 1 ]);
+      expect(menu1.foodGroupList()).to.have.members([ 4, -1, 3, 1 ]);
     });
 
   });

@@ -19,6 +19,14 @@ export class Menu {
     addDish(dish: Dish) {
         this.dishes.push(dish);
     }
+
+    /**
+     * Getter method that return the array of dishes of the menu
+     * @returns {Array<Dish>} Array of dishes
+     */
+    getDishes(): Array<Dish> {
+        return this.dishes;
+    }
     /**
      * Getter method that returns the price of the meni, it is achieved
      * with the sum of the price of each Dish.
