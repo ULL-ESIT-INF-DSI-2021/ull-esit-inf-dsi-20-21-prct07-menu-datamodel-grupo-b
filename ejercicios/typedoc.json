@@ -1,7 +1,9 @@
 {
   "entryPoints": [
-    "./src/modi-1.ts",
-    "./src/claseDish.ts"
+    "./src/classMenu.ts",
+    "./src/claseDish.ts",
+    "./src/classIngredient.ts",
+    "./src/classMenuList.ts"
   ],
   "out": "./typeDocs"
 }

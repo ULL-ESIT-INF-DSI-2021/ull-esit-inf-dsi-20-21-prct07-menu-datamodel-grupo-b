@@ -1,6 +1,13 @@
 import {Menu} from "./classMenu";
 import {Dish} from './claseDish';
 
+/**
+ * Class that implements a menu list with many different 
+ * types of menus and dishes, with some options as add 
+ * more dishes or menus or create a new menu with some
+ * of the different dishes in our menu list.
+ * @class class MenuList
+ */
 export class MenuList {
   /**
    * Attribute, as array, to save the list of menus.
@@ -12,9 +19,9 @@ export class MenuList {
   private dishes: Array<Dish>;
 
   /**
-   * Constructor method
-   * @param {Array<Menu>} menus Array of the menus of the menu list
-   * @param {Array<Dish>} dishes Array of the dishes of the menu list
+   * Constructor method.
+   * @param {Array<Menu>} menus Array of the menus of the menu list.
+   * @param {Array<Dish>} dishes Array of the dishes of the menu list.
    */
   constructor(menus: Array<Menu>, dishes: Array<Dish>) {
     this.menus = menus;
@@ -22,32 +29,32 @@ export class MenuList {
   }
 
   /**
-   * Method that allow us to add a new menu to the menu list
-   * @param {Menu} menu New menu 
+   * Method that allow us to add a new menu to the menu list.
+   * @param {Menu} menu New menu.
    */
   addMenu(menu: Menu) {
     this.menus.push(menu);
   }
 
   /**
-   * Method that allow us to add a new dish to the menu list
-   * @param {Dish} dish New dish
+   * Method that allow us to add a new dish to the menu list.
+   * @param {Dish} dish New dish.
    */
   addDish(dish: Dish) {
     this.dishes.push(dish);
   }
 
   /**
-   * Getter method  that return us the array of menus of our menu list
-   * @returns {Array<Menu>} Array with the menus
+   * Getter method  that return us the array of menus of our menu list.
+   * @returns {Array<Menu>} Array with the menus.
    */
   getMenus(): Array<Menu> {
     return this.menus;
   }
 
   /**
-   * Getter method  that return us the array of dishes of our menu list
-   * @returns {Array<Dish>} Array of the dishes
+   * Getter method  that return us the array of dishes of our menu list.
+   * @returns {Array<Dish>} Array of the dishes.
    */
   getDishes(): Array<Dish> {
     return this.dishes;
@@ -55,9 +62,9 @@ export class MenuList {
 
   /**
    * Method to create a new menu with some of the 
-   * existing dishes in our menu list
+   * existing dishes in our menu list.
    * @param {Array<Dish>} numberDishes Array that indicate the number of the dishes
-   * that we want to put in our new menu
+   * that we want to put in our new menu.
    */
   newMenu(numberDishes: Array<number>) {
     let dishes: Array<Dish> = [];
