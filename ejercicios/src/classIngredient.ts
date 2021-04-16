@@ -21,7 +21,7 @@
  * @brief group4: Cereals
  * @brief group5: Fruits
  */
-export enum ingredient {group1, group2, group3, group4, group5};
+export enum ingredientGroups {group1, group2, group3, group4, group5};
 
 /**
  * @brief String --> Macronutrients: Carbohydrates, proteins and lipids.
@@ -36,7 +36,7 @@ export class Ingredient {
     private nutritionalComposition: NutritionalComposition[];
 
     /**
-     * @rbief Constructor of the class ingredient
+     * @brief Constructor of the class ingredient
      * @param name Ingredient name
      * @param location Ingredient location
      * @param group Food group which the ingredient belongs
@@ -50,7 +50,7 @@ export class Ingredient {
   constructor(
         private name: string,
         private location: string,
-        private group: ingredient,
+        private group: ingredientGroups,
         private carbohydrates: number,
         private protein: number,
         private lipids: number,
@@ -60,32 +60,58 @@ export class Ingredient {
         this.nutritionalComposition = [["carbohydrates", carbohydrates], ["protein", protein], ["lipids", lipids]];
     }
 
-    // Método implementado para hacer pruebas clase Dish. 
+    /**
+     *  @brief Get private attribute Name
+     */
     getName() {
         return this.name;
     }
 
-    // Método implementado para hacer pruebas clase Dish. 
+    /**
+     *  @brief Get private attribute location
+     */
+    getLocation() {
+        return this.location;
+    }
+
+    /**
+     *  @brief Get private attribute Group
+     */
     getGroup() {
         return this.group;
     }
 
-    // Método implementado para hacer pruebas clase Dish. 
+    /**
+     *  @brief Get private attribute Proteins
+     */ 
     getProteins() {
         return this.protein;
     }
 
-    // Método implementado para hacer pruebas clase Dish. 
+    /**
+     *  @brief Get private attribute Carbohydrates
+     */ 
     getCarbohydrates() {
         return this.carbohydrates;
     }
 
-    // Método implementado para hacer pruebas clase Dish. 
+    /**
+     *  @brief Get private attribute Lipids
+     */
     getLipids() {
         return this.lipids;
     }
 
-    // Método implementado para hacer pruebas clase Dish. 
+    /**
+     *  @brief Get private attribute Kcal
+     */
+    getKcal() {
+        return this.kcal;
+    }
+
+    /**
+     *  @brief Get private attribute Price
+     */ 
     getPrice() {
         return this.price;
     }

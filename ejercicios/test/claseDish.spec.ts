@@ -1,8 +1,8 @@
 import 'mocha';
 import {expect} from 'chai';
 
-import {Ingredient} from '../src/classIngredient'; // El nombre creo que hay que cambiarlo.
-import {ingredient} from '../src/classIngredient';
+import {Ingredient} from '../src/classIngredient'; 
+import {ingredientGroups} from '../src/classIngredient';
 
 import {tipoPlato} from '../src/claseDish';
 import {Dish} from '../src/claseDish';
@@ -64,7 +64,7 @@ describe('Test block class Dish', () => {
 
     // Predominant ingredient now is 1 (vegetables and greens)
     expect(plato1.predominantGroup()).to.be.equal(1);
-    expect(plato1.predominantGroup()).to.be.equal(ingredient.group2);
+    expect(plato1.predominantGroup()).to.be.equal(ingredientGroups.group2);
   });
 
   it('nutritionalComposition() test', () => {
