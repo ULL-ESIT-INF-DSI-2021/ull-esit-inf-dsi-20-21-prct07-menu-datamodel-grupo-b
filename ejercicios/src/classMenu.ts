@@ -1,6 +1,6 @@
 import {Dish} from './claseDish';
 import {tipoPlato} from './claseDish';
-import {ingredient, Ingredient} from './classIngredient';
+import {ingredientGroups, Ingredient} from './classIngredient';
 
 
 export class Menu {
@@ -9,7 +9,7 @@ export class Menu {
      */
     private dishes: Array<Dish>;
 
-    constructor (dishes:Array<Dish>) {
+    constructor(dishes:Array<Dish>) {
         this.dishes = dishes;
     }
     /**
@@ -43,7 +43,7 @@ export class Menu {
      * Enter the name of the dish together with its ingredients.
      */
     dishesList() {
-        let list:Array<[string, Array<[Ingredient, Number]>]> = []
+        let list:Array<[string, Array<[Ingredient, Number]>]> = [];
 
         this.dishes.forEach(element => {
             list.push([element.getDishName(), element.getIngredients()]);
@@ -69,11 +69,10 @@ export class Menu {
      * Returns an array with the list of food groups n the menu in their 
      * orden of appearance. 
      */
-    foodGroupList() : Array<ingredient> {
-        let list:Array<ingredient> = [];
+    foodGroupList() : Array<ingredientGroups> {
+        let list:Array<ingredientGroups> = [];
         this.dishes.forEach(element => {
             list.push(element.predominantGroup());
-            
         });
         return list;
     }

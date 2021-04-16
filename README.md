@@ -2,14 +2,14 @@
 
 ## 1. Introducción
 
-A modo de introducción, se detallará un informe de la séptima práctica de la asignatura Desarrollo de Sistemas Informáticos del grado de Ingeniería Informática sobre un diseño orientado a objetos del modelo de datos de un sistema de información que permite el diseño de menús. Es la primera práctica grupal de la asignatura.
+A modo de introducción, se detallará un informe de la séptima práctica de la asignatura Desarrollo de Sistemas Informáticos del grado de Ingeniería Informática sobre un diseño orientado a objetos del modelo de datos de un sistema de información que permite el diseño de menús. 
 
-## 2. Estructura del proyecto
+Esta práctica es la primera que se desarrolla en grupo y su estructura es similar a la de las prácticas individuales realizadas durante el cuatrimestre. Partimos de un directorio raíz el cual contiene los ficheros de configuración, el código fuente y las pruebas unitarias del proyecto. 
 
-## 3. Descripción de los requisitos del sistema de diseño de menús
+## 2. Descripción de los requisitos del sistema de diseño de menús
 
-## 4. Funcionamiento
+## 3. Funcionamiento
 
-## 5. Conclusiones y dificultades
+## 4. Conclusiones y dificultades
 
-## 6. Referencias
+## 5. Referencias

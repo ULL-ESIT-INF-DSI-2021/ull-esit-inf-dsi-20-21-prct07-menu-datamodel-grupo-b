@@ -1,7 +1,7 @@
 // Clase Plato.
 
 import {Ingredient} from './classIngredient';
-import {ingredient} from './classIngredient';
+import {ingredientGroups} from './classIngredient';
 
 /**
  * @enum Defines what kind of dish is.
@@ -105,11 +105,11 @@ export class Dish {
    * @returns An _ingredient_ enum value, the more repeated of alls. Returns the
    * value -1 if there is no unique predominant group of aliments.
    */
-  predominantGroup(): ingredient {
+  predominantGroup(): ingredientGroups {
     let counters = [];
     // With this we get the number of entries in a non-string enumerable in
     // Typescript.
-    let enumLength = (Object.entries(ingredient)).length / 2;
+    let enumLength = (Object.entries(ingredientGroups)).length / 2;
     let result: number = 0;
     let maximum: number = -1;
 
