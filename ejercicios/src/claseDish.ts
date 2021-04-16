@@ -1,4 +1,17 @@
-// Clase Plato.
+/**
+  * Universidad de La Laguna
+  * Escuela Superior de Ingeniería y Tecnología
+  * Grado en Ingeniería Informática
+  * Desarrollo de sistemas
+  * Curso: 3º
+  * Editor: Visual Studio Code
+  *
+  * @file claseDish.ts
+  * @version 1.0
+  * @author Grupo B
+  * @date 7 de Abril 2021
+  * @brief Data model of a system that allows menu design
+*/
 
 import {Ingredient} from './classIngredient';
 import {ingredientGroups} from './classIngredient';
@@ -9,9 +22,7 @@ import {ingredientGroups} from './classIngredient';
 export const enum tipoPlato {ENTRANTE, PRIMER_PLATO, SEGUNDO_PLATO, POSTRE};              
 
 /**
- * A class that conforms a dish made of a series of diverse ingredients and
- * methods that let configure the dish, adding and/or removing those
- * ingredients.
+ * @brief class that conforms a dish made of a series of diverse ingredients and methods that let configure the dish, adding and/or removing those ingredients.
  * @class class Dish
  */
 export class Dish {
@@ -36,7 +47,7 @@ export class Dish {
   }
 
   /**
-   * A getter method which returns the dish name.
+   * @brief A getter method which returns the dish name.
    * @returns A string with the name of the dish.
    */
   getDishName(): string {
@@ -44,7 +55,7 @@ export class Dish {
   }
   
   /**
-   * A getter. Returns all the ingredients of the dish and each amount of these.
+   * @brief A getter. Returns all the ingredients of the dish and each amount of these.
    * @returns An array (a tuple), in which each element is made of an object
    * _ingredient_ and a number that represents the ingredient weight in grams.
    */
@@ -70,7 +81,7 @@ export class Dish {
   }
 
   /**
-   * A getter returning the type of the dish.
+   * @brief A getter returning the type of the dish.
    * @returns A enum _tipoPlato_ with the type of the dish.
    */
   getDishType(): tipoPlato {
@@ -78,7 +89,7 @@ export class Dish {
   }
 
   /**
-   * Returns the number of ingredients that the dish is made of.
+   * @brief Returns the number of ingredients that the dish is made of.
    * @returns A _number_ representing the number of ingredients that the dish
    * consist of.
    */
@@ -87,7 +98,7 @@ export class Dish {
   }
 
   /**
-   * Method that let us add a new ingredient to the dish. Ingredients already
+   * @brief Method that let us add a new ingredient to the dish. Ingredients already
    * present can not be added another time. The exact same ingredient only can
    * be added once.
    * @param ingredient A tuple of two variables: the first one is a _Ingredient_
@@ -101,7 +112,7 @@ export class Dish {
   }
 
   /**
-   * Analyzes the dish aliment groups and calculates which is the more abundant.
+   * @brief Analyzes the dish aliment groups and calculates which is the more abundant.
    * @returns An _ingredient_ enum value, the more repeated of alls. Returns the
    * value -1 if there is no unique predominant group of aliments.
    */
@@ -154,7 +165,7 @@ export class Dish {
   }
 
   /**
-   * Calculates the total dish nutritional composition. Totals of carbohydrates,
+   * @brief Calculates the total dish nutritional composition. Totals of carbohydrates,
    * proteins and lipids
    * @returns An array with the carbohydrates total (1º element), proteins total
    * (2º element) and lipids total (3º element).
@@ -178,7 +189,7 @@ export class Dish {
   }
 
   /**
-   * Calculates the dish total price based in the cost of each ingredient used.
+   * @brief Calculates the dish total price based in the cost of each ingredient used.
    * @returns The raw total price of the dish : A sum of each ingredient cost
    * by weight (euros by kilogram used).
    */
@@ -194,7 +205,7 @@ export class Dish {
   }
 
   /**
-   * Remove all dish ingredients whose name match the argument passed by this
+   * @brief Remove all dish ingredients whose name match the argument passed by this
    * method. 
    * @param ingredientName Name of the ingredient we want to remove from the
    * dish.
@@ -217,7 +228,7 @@ export class Dish {
   }
 
   /**
-   * Removes the ingredient from the dish  
+   * @brief Removes the ingredient from the dish  
    * @param ingr An _Ingredient_ object. Deletes the exact match of that object
    * in the dish if it exists.
    */

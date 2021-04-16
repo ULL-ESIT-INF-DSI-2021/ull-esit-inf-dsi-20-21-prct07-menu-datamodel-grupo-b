@@ -3,7 +3,9 @@
     "./src/classMenu.ts",
     "./src/claseDish.ts",
     "./src/classIngredient.ts",
-    "./src/classMenuList.ts"
+    "./src/classMenuList.ts",
+    "./src/classComanda.ts",
+    "./src/classOrder.ts"
   ],
   "out": "./typeDocs"
 }

@@ -1,3 +1,17 @@
+/**
+  * Universidad de La Laguna
+  * Escuela Superior de Ingeniería y Tecnología
+  * Grado en Ingeniería Informática
+  * Desarrollo de sistemas
+  * Curso: 3º
+  * Editor: Visual Studio Code
+  *
+  * @file classMenu.ts
+  * @version 1.0
+  * @author Grupo B
+  * @date 7 de Abril 2021
+  * @brief Data model of a system that allows menu design
+*/
 import {Dish} from './claseDish';
 import {tipoPlato} from './claseDish';
 import {ingredientGroups, Ingredient} from './classIngredient';
@@ -5,7 +19,7 @@ import {ingredientGroups, Ingredient} from './classIngredient';
 
 export class Menu {
     /**
-     * Attribute, as array, to save the list of menu dishes.
+     * @brief Attribute, as array, to save the list of menu dishes.
      */
     private dishes: Array<Dish>;
 
@@ -13,7 +27,7 @@ export class Menu {
         this.dishes = dishes;
     }
     /**
-     * Method that adds a new Dish to the menu array.
+     * @brief Method that adds a new Dish to the menu array.
      * @param dish New Dish 
      */
     addDish(dish: Dish) {
@@ -21,14 +35,14 @@ export class Menu {
     }
 
     /**
-     * Getter method that return the array of dishes of the menu
+     * @brief Getter method that return the array of dishes of the menu
      * @returns {Array<Dish>} Array of dishes
      */
     getDishes(): Array<Dish> {
         return this.dishes;
     }
     /**
-     * Getter method that returns the price of the meni, it is achieved
+     * @brief Getter method that returns the price of the meni, it is achieved
      * with the sum of the price of each Dish.
      * @returns A number with the total price
      */
@@ -40,7 +54,7 @@ export class Menu {
         return sumPriceDishes.toFixed(2);
     }
     /**
-     * Enter the name of the dish together with its ingredients.
+     * @brief Enter the name of the dish together with its ingredients.
      */
     dishesList() {
         let list:Array<[string, Array<[Ingredient, Number]>]> = [];
@@ -52,7 +66,7 @@ export class Menu {
         return list;
     }
     /**
-     * Method that calculates the total nutritional composition of 
+     * @brief Method that calculates the total nutritional composition of 
      * the menu based on that of each dish.
      * @returns Returns an array with [carbohydrates, proteins, lipids]
      */
@@ -66,7 +80,7 @@ export class Menu {
         return composition;
     }
     /**
-     * Returns an array with the list of food groups n the menu in their 
+     * @brief Returns an array with the list of food groups n the menu in their 
      * orden of appearance. 
      */
     foodGroupList() : Array<ingredientGroups> {

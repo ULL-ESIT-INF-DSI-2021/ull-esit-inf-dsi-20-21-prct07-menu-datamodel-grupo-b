@@ -6,7 +6,7 @@
   * Curso: 3º
   * Editor: Visual Studio Code
   *
-  * @file practica-7.ts
+  * @file classIngredient.ts
   * @version 1.0
   * @author Grupo B
   * @date 7 de Abril 2021

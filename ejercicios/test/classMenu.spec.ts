@@ -39,6 +39,5 @@ describe('Test block class Menu', () => {
     it('foodGroupList in menu1', () => {
       expect(menu1.foodGroupList()).to.have.members([ 4, -1, 3, 1 ]);
     });
-
   });
   

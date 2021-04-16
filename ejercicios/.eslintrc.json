@@ -30,6 +30,7 @@
         "array-bracket-spacing": "off",
         "no-unused-vars": "off",
         "new-cap": "off",
-        "arrow-parens": "off"
+        "arrow-parens": "off",
+        "brace-style": "off"
     }
 }
