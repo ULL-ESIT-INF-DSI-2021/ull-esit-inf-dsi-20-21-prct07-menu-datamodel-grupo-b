@@ -84,9 +84,10 @@ Por último, la clase ingrediente se encarga de crear un objeto cuyas propiedade
 
 Se puede observar el código a continuación:
 
-![Error al cargar la imagen de la clase ingrediente]()
+![Error al cargar la imagen de la clase ingrediente](https://raw.githubusercontent.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct07-menu-datamodel-grupo-b/master/ejercicios/images/claseIngrediente.png?token=AKMQEBM3GMVMNL7J6YHTP5DAQPXOA)
 
-![Test de la clase ingrediente]()
+![Test de la clase ingrediente](https://raw.githubusercontent.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct07-menu-datamodel-grupo-b/master/ejercicios/images/testIngrediente.png?token=AKMQEBLBU63GCSH65SFUC5TAQPXRC)
+
 ### 4.2 Clase plato
 
 ### 4.3 Clase menú
