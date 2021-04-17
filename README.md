@@ -6,73 +6,78 @@ A modo de introducción, se detallará un informe de la séptima práctica de la
 
 Esta práctica es la primera que se desarrolla en grupo y su estructura es similar a la de las prácticas individuales realizadas durante el cuatrimestre. Partimos de un directorio raíz el cual contiene los ficheros de configuración, el código fuente y las pruebas unitarias del proyecto. 
 
+Se espera que se aprenda el manejo de los módulos inquirer.js y Lowdb para la interacción con los usuarios. 
+
 ## 2. Descripción de los requisitos del sistema de diseño de menús
+
+Se pide la creación de un programa que permita interactuar con usuarios, por un lado, para poder modificar el inventario de ingredientes y menús y cartas, y por otro para que el cliente pueda ver la carta y hacer su pedido. 
 
 ### 2.1 Alimentos y/o ingredientes
 
-Para cada alimento o ingrediente considerado dentro del sistema de diseño de menús se debe almacenar la información siguiente:
-1. Grupo de alimentos al que pertenece que puede ser:
-- Carnes, pescados, huevos, tofu, frutos secos, semillas y legumbres.
-- Verduras y hortalizas.
-- Leche y derivados.
-- Cereales.
-- Frutas.
+Serán la base de los menús y cada alimento debe constar de los siguientes elementos:
 
-2. La composición nutricional del alimento con respecto a los macronutrientes y kcal por 100 gr de dicho alimento.
-- Macronutrientes: Hidratos de carbono, proteínas y lípidos.
+- Nombre.
 
-3. Precio del alimento y/o ingrediente por kg en euros.
-Además, un alimento tendrá un nombre y localización de origen (país, ciudad, etc.)
+- Lugar de origen.
+
+- Grupo de alimentos:
+    1. Carnes, pescados, huevos, tofu, frutos secos, semillas y legumbres.
+    2. Verduras y hortalizas.
+    3. Leche y derivados.
+    4. Cereales.
+    5. Frutas.
+
+- Composición nutricional del alimento que se indica para cada 100 gr de alimento (Hidratos de carbono, proteínas y lípidos).
+
+- Precio del alimento por kg en euros.
 
 ### 2.2 Platos
 
-Los platos de un menú estarán compuestos por alimentos y/o ingredientes como los definidos anteriormente. Además, deberá considerar que un plato puede pertener a cuatro categorías distintas: entrante, primer plato, segundo plato y postre. Asimismo, para cada plato dentro del sistema se debería poder acceder a la siguiente información:
-1. Lista de alimentos y/o ingredientes que lo componen.
+Será un conjunto de ingredientes y será del tipo entrante, primer plato, segundo plato o postre. La clase debe poder mostrar:
 
-2. Composición nutricional del plato. Esto es, la suma de la composición nutricional de los alimentos que componen el plato. Hay que tener en cuenta que los valores nutricionales se definen por 100 gr de ingrediente, pero no siempre se usan 100 gr de cada ingrediente para elaborar un plato.
+- Su lista de alimentos y/o ingredientes.
 
-3. Grupo de alimento predominante. Este atributo deberá definir el grupo de alimento que más aparece entre los ingredientes del plato.
+- Composición nutricional del plato. 
 
-4. Precio total del plato en euros en función de la suma de los precios de los ingredientes y sus cantidades que lo componen.
+- Grupo de alimento predominante. 
+
+- Precio del plato.
 
 ### 2.3 Menús
 
-Un menú estará compuesto por platos, incluyendo un plato de cada categoría o, al menos, tres de ellas. Para cada menú, se debe poder consultar la siguiente información:
-1. Precio total del menú en euros.
+Es un conjunto de platos, uno de cada categoría o de tres. La clase debe poder mostrar lo siguiente:
 
-2. Platos que lo componen con sus correspodientes alimentos y/o ingredientes.
+- Precio del menú.
 
-3. Composición nutricional del menú de acuerdo a lo definido en el punto 2 de la sección Alimentos.
+- Platos que lo componen con sus correspodientes alimentos y/o ingredientes.
 
-4. Listado de grupos de alimentos por orden de aparición.
+- Composición nutricional.
+
+- Listado de grupos de alimentos por orden de aparición.
 
 ### 2.4 Carta
 
-Supongamos que el sistema que estamos diseñando se empleará en un restaurante. Dicho restaurante dispone de una carta con una serie de menús prediseñados por la administración del local. Además, en la carta se incluyen platos individuales para que los comensales diseñen sus propios menús para comer. Los menús a diseñar por los clientes pueden tener todos los platos que deseen ya que, por ejemplo, un grupo de personas podría decidir pedir varios platos para compartir o pedirlos individualmente.
+Se debe poder crear una carta que contenga tanto menús como platos individuales de los que los clientes escojan todos los que quieran.
 
 ## 3. Funcionamiento
 
-Para comprobar el funcionamiento de su diseño deberá crear:
-1. Al menos 50 alimentos y/o ingredientes distintos para cocinar platos. Puede ayudarse del siguiente [recurso](https://drive.google.com/file/d/1B-jULJvgWmphWsZV1e3BG0fGL77jokSZ/view) para cumplimentar esta información.
+Para la interacción con los usuarios de debe crear una funcionalidad que permita la creación, modificación y borrado de ingredientes, platos o menús. 
 
-2. Entre 5 y 10 platos por cada categoría (entrante, primer plato, etc).
-
-3. Un mínimo de 5 menús distintos con los platos creados anteriormente.
-
-4. Una carta conformada por los diferentes menús diseñados.
-
-En este punto, deberá hacer uso del módulo __Inquirer.js__ para la gestión de una línea de comandos interactiva. De este modo, su aplicación deberá permitir añadir, borrar y modificar ingredientes, platos, menús y cartas. Para ello, le recomendamos que lea el Capítulo 1 del libro Essential TypeScript: From Beginner to Pro, dado que se describe un ejemplo detallado de su uso, incluyendo cómo podría hacer para que toda la información introducida persista mediante el uso del paquete __Lowdb__.
+Y una base de datos que disponga de 50 ingredientes, 5 platos de cada tipo, 5 menús y una carta.
 
 ### 3.1 Clase Comanda
 
-Por último, deberá crear una clase Comanda que permita almacenar la comanda de un nuevo cliente de restaurante. Recuerde que la comanda de un cliente puede ser un menú predefinido o un menú personalizado con los platos que el cliente desee.
+Esta clase guardará el pedido de un cliente y se debe poder:
 
-Para el funcionamiento de la clase Comanda, también necesitará hacer uso de __Inquirer.js__. En concreto, un cliente podrá:
-1. Visualizar la carta del restaurante. Para cada menú y/o plato, el cliente querrá poder observar toda la información que tiene (precio, ingredientes, composición nutricional y grupos de alimentos).
+- Ver la carta (menús y platos con su información).
 
-2. Realizar una comanda. Un cliente podrá realizar una comanda a partir de un menú preestablecido o bien solicitando un menú personalizado. En caso de solicitar un menú personalizado, se deberá proporcionar la opción de visualizar la carta completa del restaurante, seleccionar cualquier plato del sistema y en la cantidad que el cliente considere oportuna (siempre de manera entera, no una ración y media por ejemplo). Por último, considere que un cliente puede solicitar un menú personalizado a partir de un menú existente. Por ejemplo, eliminando o añadiendo distintos platos al menú.
+- Realizar una comanda donde el cliente pueda escoger un menú personalizar el suyo ya sea entero o variando alguno existente.
+
 
 ## 4. Desarrollo del proyecto
+
+Para poder hacer la interacción con el usuario se usa Inquirer.js, esto es un módulo que permite coger lo que el usuario introduce en la linea de comandos en node.js haciendo una serie de preguntas y dando opciones de respuesta. 
+Es necesario tener una base de datos con el stock de ingredientes y la carta disponible, y poder guardar la selección del cliente, para esto usamos el módulo Lowdb que permite la gestión de un base de datos.
 
 ### 4.1 Clase ingredientes
 
@@ -91,6 +96,8 @@ Se puede observar el código a continuación:
 ### 4.2 Clase plato
 
 ### 4.3 Clase menú
+
+Esta clase permite la creación de un menú. Para ello se permite guardar en un array los platos que lo formen.
 
 ### 4.4 Clase comanda
 
