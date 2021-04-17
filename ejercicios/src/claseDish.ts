@@ -30,7 +30,7 @@ export class Dish {
    * @member A Map : Keys are object of class _Ingredient_, values are the
    * weight of each ingredient (in grams).
    */
-  private Ingredients: Map<Ingredient, number>;
+  public Ingredients: Map<Ingredient, number>;
 
   /**
    * @param dishName The name of the dish.
@@ -38,8 +38,8 @@ export class Dish {
    * and object _Ingredient_ and a number (weight in grams).
    * @param plato The type of the dish.
    */
-  constructor(private dishName: string, ingredients: [Ingredient, number][],
-      private plato: tipoPlato ) {
+  constructor(public dishName: string, ingredients: [Ingredient, number][],
+      public plato: tipoPlato ) {
     this.Ingredients = new Map;
 
     ingredients.forEach((element) => this.Ingredients.set(element[0],
@@ -79,6 +79,7 @@ export class Dish {
 
     return allIngredients;
   }
+
 
   /**
    * @brief A getter returning the type of the dish.
