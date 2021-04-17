@@ -14,7 +14,8 @@
 */
 
 import {Menu} from "./classMenu";
-import {Dish} from './claseDish';
+import {Dish, tipoPlato} from './claseDish';
+import {Ingredient} from "./classIngredient";
 
 /**
  * @brief Class that implements a menu list with many different 
@@ -27,20 +28,43 @@ export class MenuList {
   /**
    * @brief Attribute, as array, to save the list of menus.
    */
-  private menus: Array<Menu>;
-  /**
-   * @brief Attribute, as array, to save the list of dishes.
-   */
-  private dishes: Array<Dish>;
+  // public menus: Array<Menu>;
+  // /**
+  //  * @brief Attribute, as array, to save the list of dishes.
+  //  */
+  // public dishes: Array<Dish>;
 
+  // public ingredients: Array<Ingredient>;
+
+  public menus: Map<number, Menu>;
+  public dishes: Map<string, Dish>;
+  public ingredients: Map<string, Ingredient>;
+  protected numberMenus: number = 0;
   /**
    * @brief Constructor method.
    * @param {Array<Menu>} menus Array of the menus of the menu list.
    * @param {Array<Dish>} dishes Array of the dishes of the menu list.
    */
-  constructor(menus: Array<Menu>, dishes: Array<Dish>) {
-    this.menus = menus;
-    this.dishes = dishes;
+  constructor(menus: Array<Menu>, dishes: Array<Dish>, ingredients: Array<Ingredient>) {
+    // this.menus = menus;
+    // this.dishes = dishes;
+    // this.ingredients = ingredients;
+    this.menus = new Map;
+
+    menus.forEach((element) => this.menus.set(this.numberMenus + 1,
+      element));
+    
+    this.numberMenus = this.numberMenus + 1;
+    
+    this.dishes = new Map;
+    
+    dishes.forEach((element) => this.dishes.set(element.getDishName(),
+    element));
+
+    this.ingredients = new Map;
+  
+    ingredients.forEach((element) => this.ingredients.set(element.getName(),
+      element));
   }
 
   /**
@@ -48,7 +72,9 @@ export class MenuList {
    * @param {Menu} menu New menu.
    */
   addMenu(menu: Menu) {
-    this.menus.push(menu);
+    this.menus.set(this.numberMenus + 1, menu);
+
+    this.numberMenus = this.numberMenus + 1;
   }
 
   /**
@@ -56,39 +82,97 @@ export class MenuList {
    * @param {Dish} dish New dish.
    */
   addDish(dish: Dish) {
-    this.dishes.push(dish);
+    this.dishes.set(dish.getDishName(), dish);
+  }
+
+  addIngredient(ingredient: Ingredient) {
+    this.ingredients.set(ingredient.getName(), ingredient);
   }
 
   /**
    * @brief Getter method  that return us the array of menus of our menu list.
    * @returns {Array<Menu>} Array with the menus.
    */
-  getMenus(): Array<Menu> {
-    return this.menus;
+  getMenus(): [number, Menu][] {
+    let allMenus: [number, Menu][] = [];
+
+    // We use the spread operator to convert the Map entries in array elements
+    // and store in an array.
+    const entries = [...this.menus.entries()];
+
+    for(let i = 0; i < entries.length; ++i) {
+      allMenus.push(entries[i]);
+    }
+
+    // Another way to convert a Map to a tuple array.
+    /*
+    for(let[key, value] of this.Ingredients) {
+      allIngredients.push([key, value]);
+    }
+    */
+
+    return allMenus;
   }
 
   /**
    * @brief Getter method  that return us the array of dishes of our menu list.
    * @returns {Array<Dish>} Array of the dishes.
    */
-  getDishes(): Array<Dish> {
-    return this.dishes;
+  getDishes(): [string, Dish][] {
+    let allDishes: [string, Dish][] = [];
+
+    // We use the spread operator to convert the Map entries in array elements
+    // and store in an array.
+    const entries = [...this.dishes.entries()];
+
+    for(let i = 0; i < entries.length; ++i) {
+      allDishes.push(entries[i]);
+    }
+
+    // Another way to convert a Map to a tuple array.
+    /*
+    for(let[key, value] of this.Ingredients) {
+      allIngredients.push([key, value]);
+    }
+    */
+
+    return allDishes;
   }
 
+  getIngredients(): [string, Ingredient][] {
+    let allIngredients: [string, Ingredient][] = [];
+
+    // We use the spread operator to convert the Map entries in array elements
+    // and store in an array.
+    const entries = [...this.ingredients.entries()];
+
+    for(let i = 0; i < entries.length; ++i) {
+      allIngredients.push(entries[i]);
+    }
+
+    // Another way to convert a Map to a tuple array.
+    /*
+    for(let[key, value] of this.Ingredients) {
+      allIngredients.push([key, value]);
+    }
+    */
+
+    return allIngredients;
+  }
   /**
    * @brief Method to create a new menu with some of the 
    * existing dishes in our menu list.
    * @param {Array<Dish>} numberDishes Array that indicate the number of the dishes
    * that we want to put in our new menu.
    */
-  newMenu(numberDishes: Array<number>) {
-    let dishes: Array<Dish> = [];
+  // newMenu(numberDishes: Array<number>) {
+  //   let dishes: Array<Dish> = [];
     
-    numberDishes.forEach(dish => {
-      dishes.push(this.dishes[dish - 1]);
-    });
-    let menu = new Menu(dishes);
+  //   numberDishes.forEach(dish => {
+  //     dishes.push(this.dishes.get(), this.dishes[dish - 1]);
+  //   });
+  //   let menu = new Menu(dishes);
 
-    this.addMenu(menu);
-  }
+  //   this.addMenu(menu);
+  // }
 }

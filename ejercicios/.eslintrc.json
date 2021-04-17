@@ -32,6 +32,7 @@
         "new-cap": "off",
         "arrow-parens": "off",
         "brace-style": "off",
-        "semi": "off"
+        "semi": "off",
+        "linebreak-style": "off"
     }
 }
