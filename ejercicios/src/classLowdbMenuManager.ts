@@ -39,94 +39,51 @@ export class lowdbMenuManager extends lowdbManager {
     let textToParse = '';
 
     let listado: Array<Dish> = menu1.getDishes();
-    console.log("lista platos");
-    console.log(listado.length);
-    console.log(listado[0]);
-    console.log(listado[0].getDishType())
 
-    let ingredientes = listado[0].getIngredients();
-    console.log("ddd");
-    console.log(ingredientes[0]);
-    let ingrediente1 = ingredientes[0];
+    // 
+    for(let i = 0; i < menu.getDishes().length; ++i) {
+      let ingredientes = listado[i].getIngredients();
 
-    textToParse = `{"dishes": [{`;
-    textToParse += `"dishname": "${listado[0].getDishName()}",`;
-    textToParse += `"plato": ${listado[0].getDishType()},`;
-    textToParse += `"Ingredients": [`;
-    textToParse += `{"name": "${ingrediente1[0].getName()}",`;
-    textToParse += `"location": "${ingrediente1[0].getLocation()}"}`;
-    textToParse += `]`;
+      textToParse = `{"dishes": [{`;
+      textToParse += `"dishname": "${listado[i].getDishName()}",`;
+      textToParse += `"plato": ${listado[i].getDishType()},`;
 
-    textToParse += `}]}`;
-    /*
-    textToParse = `{"dishes": [{
-        "dishname": "${listado[0].getDishName()}",
-        "plato": ${listado[0].getDishType()},
-        "Ingredientes": ${listado[0].numberOfIngredients()},
-                                }]}`;
-                                */
+      textToParse += `"Ingredients": [`;
+      for(let j = 0; j < ingredientes.length; ++j) {
+        let ingrediente = ingredientes[j];
 
-    this.db99.get('Menus')
-    .push(JSON.parse(textToParse))
-    .write()
+        if(ingrediente != undefined) {
+          textToParse += `{"name": "${ingrediente[0].getName()}",`;
+          textToParse += `"location": "${ingrediente[0].getLocation()}",`;
+          textToParse += `"group": ${ingrediente[0].getGroup()},`;
+          textToParse += `"carbohydrates": ${ingrediente[0].getCarbohydrates()},`;
+          textToParse += `"protein": ${ingrediente[0].getProteins()},`;
+          textToParse += `"lipids": ${ingrediente[0].getLipids()},`;
+          textToParse += `"kcal": ${ingrediente[0].getKcal()},`;
+          textToParse += `"price": ${ingrediente[0].getPrice()},`;
+          textToParse += `"weight": ${ingrediente[1]}}`;
+        }
 
-    // Las maneras siguiente funcionan, pero no añaden los ingredientes
-    /*
-     this.db99.get('Menus')
-    .push({dishes: listado})
-    .write()
-    */
+        if (j < ingredientes.length - 1) {
+          textToParse += `,`;
+        }
+      }
+      textToParse += `]`;
 
-    /*
-     this.db99.get('Menus')
-     .push({dishes: menu.getDishes()})
-     .write()
-    */
+      textToParse += `}]}`;
 
-
-     // We have to parse the string to the format that uses JSON with
-     // JSON.pase() function
-    
-    // if (this.database.has("Ingredients").value()) {
-    //   let dbItems = this.database.get("Ingredients").value();
-    //   dbItems.forEach((item: any) => this.ingredients.set(item.name, item.ingredient));
-
-    /*
-     this.db99.get('Menus')
-    .push({dishes: listado})
-    .write()
-    */
-
-    /*
-     this.db99.get('Menus')
-     .push({dishes: menu.getDishes()})
-     .write()
-    */
-
-
+      this.db99.get('Menus')
+      .push(JSON.parse(textToParse))
+      .write()
+    }
+   
     /*
      this.db99.get('Menus')
      .get('dishes')
      .find({dishname: 'Espaguetis en salsa'})
-     .assign({dishname: 'Espogotes en solso'})
+     .assign({dishname: 'Ospogotos on solso'})
      .write()
      */
-
-     
-    // this.db99.get('Menus')
-    // .get('dishes')
-    // .push(dishName: dishes.getDishName(), plato: dishes.getDishType(), Ingredients: dishes.getIngredients())
-    // .write()
-    
-
-    /*
-    this.db99.get('Menus')
-    .push({name: ingr.getName(), location: ingr.getLocation(),
-      group: ingr.getGroup(), carbohydrates: ingr.getCarbohydrates(),
-      proteins: ingr.getProteins(), lipids: ingr.getLipids(),
-      kcal: ingr.getKcal(), price: ingr.getPrice()})
-    .write()
-    */
   }
 
   retrieveMenuFromJSON(ingredientName: string): string{
@@ -149,8 +106,8 @@ export class lowdbMenuManager extends lowdbManager {
     return this.db99.get("Menus").value();
   }
 
-  removeMenuFromJSON(ingredientName: string): void {
-    let textToParse = `{"name": "${ingredientName}"}`;
+  removeMenuFromJSON(menuName: string): void {
+    let textToParse = `{"name": "${menuName}"}`;
     // We have to parse the string to the format that uses JSON with
     // JSON.pase() function
     let parsedText = JSON.parse(textToParse);

@@ -8,7 +8,46 @@
           "Ingredients": [
             {
               "name": "tomates",
-              "location": "La Matanza"
+              "location": "La Matanza",
+              "group": 4,
+              "carbohydrates": 16,
+              "protein": 12,
+              "lipids": 18,
+              "kcal": 32,
+              "price": 1.02,
+              "weight": 12
+            },
+            {
+              "name": "espaguetis",
+              "location": "La Matanza",
+              "group": 3,
+              "carbohydrates": 11,
+              "protein": 12,
+              "lipids": 15,
+              "kcal": 32,
+              "price": 1.02,
+              "weight": 80
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dishes": [
+        {
+          "dishname": "Tomates aliñados",
+          "plato": 0,
+          "Ingredients": [
+            {
+              "name": "tomates",
+              "location": "La Matanza",
+              "group": 4,
+              "carbohydrates": 16,
+              "protein": 12,
+              "lipids": 18,
+              "kcal": 32,
+              "price": 1.02,
+              "weight": 175
             }
           ]
         }
@@ -22,7 +61,25 @@
           "Ingredients": [
             {
               "name": "tomates",
-              "location": "La Matanza"
+              "location": "La Matanza",
+              "group": 4,
+              "carbohydrates": 16,
+              "protein": 12,
+              "lipids": 18,
+              "kcal": 32,
+              "price": 1.02,
+              "weight": 12
+            },
+            {
+              "name": "espaguetis",
+              "location": "La Matanza",
+              "group": 3,
+              "carbohydrates": 11,
+              "protein": 12,
+              "lipids": 15,
+              "kcal": 32,
+              "price": 1.02,
+              "weight": 80
             }
           ]
         }
@@ -31,96 +88,19 @@
     {
       "dishes": [
         {
-          "dishname": "Espaguetis en salsa",
-          "plato": 1,
+          "dishname": "Tomates aliñados",
+          "plato": 0,
           "Ingredients": [
             {
               "name": "tomates",
-              "location": "La Matanza"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "dishes": [
-        {
-          "dishname": "Espaguetis en salsa",
-          "plato": 1,
-          "Ingredients": [
-            {
-              "name": "tomates",
-              "location": "La Matanza"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "dishes": [
-        {
-          "dishname": "Espaguetis en salsa",
-          "plato": 1,
-          "Ingredients": [
-            {
-              "name": "tomates",
-              "location": "La Matanza"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "dishes": [
-        {
-          "dishname": "Espaguetis en salsa",
-          "plato": 1,
-          "Ingredients": [
-            {
-              "name": "tomates",
-              "location": "La Matanza"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "dishes": [
-        {
-          "dishname": "Espaguetis en salsa",
-          "plato": 1,
-          "Ingredients": [
-            {
-              "name": "tomates",
-              "location": "La Matanza"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "dishes": [
-        {
-          "dishname": "Espaguetis en salsa",
-          "plato": 1,
-          "Ingredients": [
-            {
-              "name": "tomates",
-              "location": "La Matanza"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "dishes": [
-        {
-          "dishname": "Espaguetis en salsa",
-          "plato": 1,
-          "Ingredients": [
-            {
-              "name": "tomates",
-              "location": "La Matanza"
+              "location": "La Matanza",
+              "group": 4,
+              "carbohydrates": 16,
+              "protein": 12,
+              "lipids": 18,
+              "kcal": 32,
+              "price": 1.02,
+              "weight": 175
             }
           ]
         }
