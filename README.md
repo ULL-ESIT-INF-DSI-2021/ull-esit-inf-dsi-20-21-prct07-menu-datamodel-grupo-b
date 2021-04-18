@@ -27,7 +27,7 @@ Se pide la creación de un programa que permita interactuar con usuarios, por un
 
 ### 2.1 Alimentos y/o ingredientes
 
-Serán la base de los menús y cada alimento debe constar de los siguientes elementos:
+La base de los menús y cada alimento debe constar de los siguientes elementos:
 
 - Nombre.
 
@@ -74,7 +74,7 @@ Se debe poder crear una carta que contenga tanto menús como platos individuales
 
 ## 3. Funcionamiento
 
-Para la interacción con los usuarios de debe crear una funcionalidad que permita la creación, modificación y borrado de ingredientes, platos o menús. 
+Para la interacción con los usuarios se debe crear una funcionalidad que permita la creación, modificación y borrado de ingredientes, platos o menús. 
 
 Y una base de datos que disponga de 50 ingredientes, 5 platos de cada tipo, 5 menús y una carta.
 
@@ -100,7 +100,7 @@ En primer lugar, se ha creado una enumeración que permite definir un conjunto d
 
 Acto seguido, se declara un alias de tipo para la tupla que contendrá la composición nutricional del alimento con respecto a los macronutrientes y kcal por 100 gr de dicho alimento.
 
-Por último, la clase ingrediente se encarga de crear un objeto cuyas propiedades serán su nombre, localización, grupo al que pertenece como detallabamos anteriormente, los macronutrientes, el total de kcal y su precio. Destacar que todas estas propiedades son privadas, y se accederán a ellas desde otras clases importando a la misma con su ruta correspondiente y haciendo uso de los métodos get. 
+Por último, la clase ingrediente se encarga de crear un objeto cuyas propiedades serán su nombre, localización, grupo al que pertenece como se detallaba anteriormente, los macronutrientes, el total de kcal y su precio. Destacar que todas estas propiedades son privadas, y se accederán a ellas desde otras clases importando a la misma con su ruta correspondiente y haciendo uso de los métodos get. 
 
 Se puede observar el código a continuación:
 
@@ -115,7 +115,7 @@ Para empezar, puesto que un plato puede ser de distintos tipos, estos se guardan
 ```ts
 export const enum tipoPlato {ENTRANTE, PRIMER_PLATO, SEGUNDO_PLATO, POSTRE};              
 ```
-Un plato es un conjunto de uno o más ingredientes, para guardar esos ingredietes se usa Map<> donde la clave será el ingrediente y el valor un number que representa la cantidad que lleva el plato de ese ingredite. El usar Map permite evitar repetir elementos.
+Un plato es un conjunto de uno o más ingredientes, para guardar esos ingredietes se usa Map<> donde la clave será el ingrediente y el valor un number que representa la cantidad que lleva el plato de ese ingrediente. El usar Map evita repetir elementos.
 
 ```ts
 export class Dish {
@@ -129,8 +129,6 @@ export class Dish {
       element[1]));
   }
 ```
-
-Como se ve, en el constructor se pasa los datos necesarios y se insertan en el map.
 
 El resto de la clase consta de los métodos getters necesarios para devolver el nombre del plato, sus ingredientes, el tipo de plato y el número de ingredientes que lleva.
 
@@ -361,7 +359,12 @@ Es un conjunto de menús y platos individuales. Al igual que en claseDish, se us
 
 A modo de conclusión, nos ha resultado muy interesante la práctica para poner en práctica con mayor profundidad el uso de las clases y objetos en Typescript. Sin embargo, nos ha costado entender los módulos de Inquirer y del paquete Lowdb para la gestión de una línea de comandos interactiva. 
 
-Por último, se ha generado la documentación en HTML mediante TypeDoc y se han realizado las respectivas pruebas unitarias. 
+Hemos intentado establecer una base de datos en la que se parta de los diferentes menús, con sus respectivos platos y estos a su vez con sus correspondientes ingredientes mediante Lowdb, ya que haciendo uso de este paquete, guardamos nuestra propia base de datos en un fichero JSON para su posterior uso en el inquirer. No conseguimos mostrar los ingredientes de los platos tras numerosas pruebas (cambiamos la implementación de la clase "dish" de map a un array, insertamos desde una clase, desde el método get que nos ofrece el paquete Lowdb...).
+
+Por último, se ha generado la documentación en HTML mediante TypeDoc y se han realizado las respectivas pruebas unitarias.
+
+[![Coverage Status](https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct07-menu-datamodel-grupo-b/badge.svg?branch=master)](https://coveralls.io/github/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct07-menu-datamodel-grupo-b?branch=master)
+
 
 ## 6. Referencias
 1. [Guión práctica 7](https://ull-esit-inf-dsi-2021.github.io/prct07-menu-dataModel/)
