@@ -1,17 +1,29 @@
 import {Dish, tipoPlato} from './claseDish';
 import {Commanda} from './classComanda';
 import {Ingredient, ingredientGroups} from './classIngredient';
+//import {IngredientJSON, DishJSON, MenuJSON} from './SchemasJSON'
 import {Menu} from './classMenu';
 import {MenuList} from './classMenuList';
 import {CustomerOrder} from './classOrder';
 import * as lowdb from "lowdb";
 import * as FileSync from "lowdb/adapters/FileSync";
 
+// type schemaType = {
+//   Ingredients: { name: string, ingredient: Ingredient } [],
+//   Dishes: { id: string, dish: Dish } [],
+//   Menus: { id: number, dishes: Dish[] } []
+// }
 type schemaType = {
   Ingredients: { name: string, ingredient: Ingredient } [],
-  Dishes: { id: string, dish: Dish } [],
+
+  Dishes: { 
+    dishName: string,
+    ingredients: [Ingredient, number][],
+    type: tipoPlato } [],
+
   Menus: { id: number, dishes: Dish[] } []
 }
+
 
 export class JsonMenuList extends MenuList {
   private database: lowdb.LowdbSync<schemaType>;
@@ -20,7 +32,7 @@ export class JsonMenuList extends MenuList {
       this.database = lowdb(new FileSync("Todos.json"));
       if (this.database.has("Ingredients").value()) {
         let dbItems = this.database.get("Ingredients").value();
-        dbItems.forEach(item => this.ingredients.set(item.name, item.ingredient));
+        dbItems.forEach((item: any) => this.ingredients.set(item.name, item.ingredient));
     } else {
         this.database.set("Ingredients", ingredient).write();
         ingredient.forEach(item => this.ingredients.set(item.getName(), item));

@@ -8,7 +8,11 @@
   },
   "scripts": {
     "test": "mocha",
+<<<<<<< HEAD
     "start": "tsc-watch --onSuccess \"node dist/pruebaOperarIngredientsJSON.js\"",
+=======
+    "start": "tsc-watch --onSuccess \"node dist/jsonMenuList.js\"",
+>>>>>>> 711153bd8086f26d5ac122053f2f577f00253f14
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls && rm -rf .nyc_output",
     "eslint-init": "eslint --init",
     "doc": "typedoc"
@@ -21,6 +25,7 @@
     "@types/inquirer": "^7.3.1",
     "@types/lowdb": "^1.0.9",
     "@types/mocha": "^8.2.2",
+    "@types/node": "^14.14.41",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "chai": "^4.3.4",
