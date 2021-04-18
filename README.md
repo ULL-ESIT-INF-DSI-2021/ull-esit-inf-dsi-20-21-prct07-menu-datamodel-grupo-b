@@ -8,6 +8,19 @@ Esta práctica es la primera que se desarrolla en grupo y su estructura es simil
 
 Se espera que se aprenda el manejo de los módulos inquirer.js y Lowdb para la interacción con los usuarios. 
 
+### 1.1 Configuración del entorno de trabajo
+
+Para configurar la estructura de ficheros, las dependencias y otras herramientas de desarrollo (_TypeDoc, Coveralls_.. etc), hemos creado un subdirectorio `ejercicios` donde se alamcena toda la información relacionada con el desarrollo:
+
+```bash
+$ mkdir ejercicios
+```
+
+Ayudándonos de los repositorios facilitados por el profesorado y la experiencia en prácticas anteriores, hemos instalado las dependencias y creado los ficheros de configuración para mostrar errores de código para facilitar el desarrollo, para realizar pruebas, generar documentación y Coveralls para asegurarnos de que el código está _"cubierto"_. Como resultado, la estructura final se ve de la siguiente manera:
+
+![project_structure](images/project_structure.png)
+
+
 ## 2. Descripción de los requisitos del sistema de diseño de menús
 
 Se pide la creación de un programa que permita interactuar con usuarios, por un lado, para poder modificar el inventario de ingredientes y menús y cartas, y por otro para que el cliente pueda ver la carta y hacer su pedido. 
@@ -79,6 +92,8 @@ Esta clase guardará el pedido de un cliente y se debe poder:
 Para poder hacer la interacción con el usuario se usa Inquirer.js, esto es un módulo que permite coger lo que el usuario introduce en la linea de comandos en node.js haciendo una serie de preguntas y dando opciones de respuesta. 
 Es necesario tener una base de datos con el stock de ingredientes y la carta disponible, y poder guardar la selección del cliente, para esto usamos el módulo Lowdb que permite la gestión de un base de datos.
 
+Para realizar est proyecto hemos seguido la metodología TDD creando los test necesarios al inicio para las clases claseDish, classComanda, classMenu, classOrder y class Ingredient.
+
 ### 4.1 Clase ingredientes
 
 En primer lugar, se ha creado una enumeración que permite definir un conjunto de constantes con nombre, en este caso, los diferentes grupos a los que pertecene un ingrediente. 
@@ -95,18 +110,265 @@ Se puede observar el código a continuación:
 
 ### 4.2 Clase plato
 
+Para empezar, puesto que un plato puede ser de distintos tipos, estos se guardan en un enum para que pueda usarse para dar ese valor.
+
+```ts
+export const enum tipoPlato {ENTRANTE, PRIMER_PLATO, SEGUNDO_PLATO, POSTRE};              
+```
+Un plato es un conjunto de uno o más ingredientes, para guardar esos ingredietes se usa Map<> donde la clave será el ingrediente y el valor un number que representa la cantidad que lleva el plato de ese ingredite. El usar Map permite evitar repetir elementos.
+
+```ts
+export class Dish {
+  public Ingredients: Map<Ingredient, number>;
+
+  constructor(public dishName: string, ingredients: [Ingredient, number][],
+      public plato: tipoPlato ) {
+    this.Ingredients = new Map;
+
+    ingredients.forEach((element) => this.Ingredients.set(element[0],
+      element[1]));
+  }
+```
+
+Como se ve, en el constructor se pasa los datos necesarios y se insertan en el map.
+
+El resto de la clase consta de los métodos getters necesarios para devolver el nombre del plato, sus ingredientes, el tipo de plato y el número de ingredientes que lleva.
+
+```ts 
+getDishName(): string {
+    return this.dishName;
+  }
+  getIngredients(): [Ingredient, number][] {
+    let allIngredients: [Ingredient, number][] = [];
+    const entries = [...this.Ingredients.entries()];
+    for(let i = 0; i < entries.length; ++i) {
+      allIngredients.push(entries[i]);
+    }
+    return allIngredients;
+  }
+
+  getDishType(): tipoPlato {
+    return this.plato;
+  }
+  numberOfIngredients(): number {
+    return this.Ingredients.size;
+  }
+```
+
+Y los métodos para añadir un ingrediente, eliminar ingrediente, calcular el precio del plato y la composición nutricional, en base al precio de los ingredientes y encontrar el tipo de alimento predominante en el plato.
+
+```ts 
+addIngredient(ingredient: [Ingredient, number]): void {
+
+    if(!this.Ingredients.get(ingredient[0])) {
+      this.Ingredients.set(ingredient[0], ingredient[1]);
+    }
+  }
+
+  predominantGroup(): ingredientGroups {
+    let counters = [];
+    let enumLength = (Object.entries(ingredientGroups)).length / 2;
+    let result: number = 0;
+    let maximum: number = -1;
+
+    for(let i = 0; i < enumLength; ++i) {
+      counters.push(0);
+    }
+
+    let iterator: IterableIterator<Ingredient> = this.Ingredients.keys();
+    let actualElement: IteratorResult<Ingredient> = iterator.next();
+ 
+    while(!actualElement.done) {
+      const aux = actualElement.value.getGroup();
+      ++counters[aux];
+      actualElement = iterator.next();
+    }
+    for(let i = 0; i < counters.length; ++i) {
+      if(counters[i]> maximum) {
+        maximum = counters[i];
+        result = i;
+      }
+    }
+    function checkMaximumUnique(valuePosition: number) {
+      return valuePosition == maximum;
+    }
+    if (counters.filter(checkMaximumUnique).length > 1) {
+      return -1;
+    }
+    return result;
+  }
+
+  nutritionalComposition(): [number, number, number] {
+    const entries = [...this.Ingredients.entries()];
+    let totalCarbohydrates = 0; 
+    let totalProteins = 0;
+    let totalLipids = 0;
+
+    entries.forEach((element) => {
+      totalCarbohydrates += (element[0].getCarbohydrates() / 100) * element[1];
+      totalProteins += (element[0].getProteins() / 100) * element[1];
+      totalLipids += (element[0].getLipids() / 100) * element[1];
+    });
+
+    return [totalCarbohydrates, totalProteins, totalLipids];
+  }
+
+  totalPrice(): number {
+    const entries = [...this.Ingredients.entries()];
+    let total = 0;
+
+    entries.forEach((element) => {
+      total += (element[1] / 1000) * element[0].getPrice();
+    });
+
+    return total;
+  }
+
+  deleteIngredientByName(ingredientName: string): void {
+    let ingredientsToRemove: Ingredient[] = [];
+    const entries = [...this.Ingredients.entries()];
+    // Get all the ingredients with the same name as the argument and store
+    // them in an array.
+    entries.forEach((element) => {
+      if(element[0].getName() == ingredientName) {
+        ingredientsToRemove.push(element[0]);
+      }
+    });
+    for(let i = 0; i < ingredientsToRemove.length; ++i) {
+      this.Ingredients.delete(ingredientsToRemove[i]);
+    }
+  }
+
+  deleteIngredient(ingr: Ingredient): void {
+    this.Ingredients.delete(ingr);
+  }
+}
+```
+
 ### 4.3 Clase menú
 
-Esta clase permite la creación de un menú. Para ello se permite guardar en un array los platos que lo formen.
+Esta clase permite la creación de un menú, este menú esta compuesto por platos por lo que se crea un array de Dish.
 
-### 4.4 Clase comanda
+```ts
+export class Menu {
+    private dishes: Array<Dish>;
+    constructor(dishes:Array<Dish>) {
+        this.dishes = dishes;
+    }
+```
+
+La clase contiene métodos para devolver el precio total del menú, añadir platos, devolver la lista de platos, la composicion nutricional y la lista de grupos de alimentos.
+
+```ts
+ addDish(dish: Dish) {
+        this.dishes.push(dish);
+    }
+    getDishes(): Array<Dish> {
+        return this.dishes;
+    }
+
+    get price() {
+        let sumPriceDishes = 0;
+        this.dishes.forEach(element => {
+            sumPriceDishes += element.totalPrice();
+        });
+        return sumPriceDishes.toFixed(2);
+    }
+
+    dishesList() {
+        let list:Array<[string, Array<[Ingredient, Number]>]> = [];
+
+        this.dishes.forEach(element => {
+            list.push([element.getDishName(), element.getIngredients()]);
+        });
+
+        return list;
+    }
+
+    nutritionalComposition() :Array<number> {
+        let composition : Array<number> = [0, 0, 0];
+        this.dishes.forEach(element => {
+            composition[0] += element.nutritionalComposition()[0];
+            composition[1] += element.nutritionalComposition()[1];
+            composition[2] += element.nutritionalComposition()[2];
+        });
+        return composition;
+    }
+
+    foodGroupList() : Array<ingredientGroups> {
+        let list:Array<ingredientGroups> = [];
+        this.dishes.forEach(element => {
+            list.push(element.predominantGroup());
+        });
+        return list;
+    }
+```
+
+### 4.4 Clase pedido
+
+Recibe el pedido del cliente que puede ser un menu o platos y la cantidad de cada uno, para ellos se recibe en el constructor un Menu/Dish y un number. Como métodos de la clase están los getter para devolver la comanda realizada y la cantidad, y un set para modificar la cantidad elegida.
+
+```ts
+export class CustomerOrder {
+  constructor(
+    private order: Menu | Dish, 
+    private cantidad: number) {}
+ 
+  getComanda(): Menu | Dish {return this.order;}
+ 
+  getCantidad(): number {return this.cantidad;}
+
+  setCantidad(qt :number) {this.cantidad = qt;}
+};
+
+```
+
+### 4.5 Clase comanda
+
+Se encarga de guardar las comandas hechas. Tiene métodos para devolver las comandas, platos y menús y un método para añadir comandas.
+
+```ts
+export class Commanda {
+  constructor(private orders: CustomerOrder[]) { }  
+
+  getAllComandas(): CustomerOrder[] {
+    return this.orders;
+  }
+
+  addComanda(newOrder: CustomerOrder) {
+    this.orders = this.orders.concat(newOrder);
+  }
+
+  getDishes(): Dish[] {
+    return this.orders.filter(
+      (or) => or instanceof Dish)
+      .map((or) => or.getComanda()) as Dish[];
+  }
+ 
+  getMenus(): Menu[] {
+    return this.orders.filter(
+      (or) => or instanceof Menu)
+      .map((or) => or.getComanda()) as Menu[];
+  }
+};
+```
+### 4.6 Clase carta
+
+Es un conjunto de menús y platos individuales. Al igual que en claseDish, se usa objetos Map<> para guardar los elemento de la carta.
+
 
 ## 5. Conclusiones y dificultades
 
-A modo de conclusión, nos ha resultado muy interesante la práctica para poner en práctica con mayor profundidad el uso de las clases y objetos en Typescript. Sin embargo, nos ha costado entender los módulos de Inquirer y del paquete Lowdb para la gestión de una línea de comandos interactiva. Por último, se ha generado la documentación en HTML mediante TypeDoc y se han realizado las respectivas pruebas unitarias. 
+A modo de conclusión, nos ha resultado muy interesante la práctica para poner en práctica con mayor profundidad el uso de las clases y objetos en Typescript. Sin embargo, nos ha costado entender los módulos de Inquirer y del paquete Lowdb para la gestión de una línea de comandos interactiva. 
+
+
+
+Por último, se ha generado la documentación en HTML mediante TypeDoc y se han realizado las respectivas pruebas unitarias. 
 
 ## 6. Referencias
 1. [Guión práctica 7](https://ull-esit-inf-dsi-2021.github.io/prct07-menu-dataModel/)
 2. [Inquirer](https://www.npmjs.com/package/inquirer)
 3. [Lowdb](https://www.npmjs.com/package/lowdb)
 4. [Recursos de ingredientes](https://drive.google.com/file/d/1B-jULJvgWmphWsZV1e3BG0fGL77jokSZ/view)
+5. [Uso de inquirer y lowdb](https://www.youtube.com/watch?v=tevAOF2rAFw&ab_channel=FaztCode)
+6. [Uso de inquirer y lowdb 2](https://www.youtube.com/watch?v=Rd0FUJR0axk&ab_channel=FaztCode)

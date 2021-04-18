@@ -1,9 +1,7 @@
-//import dishes from '../dishes.json';
+import inquirer = require("inquirer");
 
-let inquirer = require('inquirer');
-
-inquirer
-  .prompt([
+inquirer.
+  prompt([
     {
       type: 'list',
       name: 'choose',
@@ -12,15 +10,12 @@ inquirer
       choices: [
         'Ver menu',
         'Realizar una comanda',
-        'Solicitar un menú personalizado',
+        'Solicitar un menu personalizado',
       ],
     },
-   
   ])
   .then((answer: string) => {
-    console.log('Answer: ', answer);
     if(answer === 'Ver menu'){
       
     }
   });
-
