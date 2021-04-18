@@ -30,18 +30,89 @@ export class lowdbMenuManager extends lowdbManager {
   // Insert an object's Menu class an insert it in the JSON file
   addMenu(menu: Menu):void {
     // TODO CAMBIARLO
+    let textToParse = '';
 
     let listado: Array<Dish> = menu1.getDishes();
+    console.log("lista platos");
+    console.log(listado.length);
+    console.log(listado[0]);
+    console.log(listado[0].getDishType())
+
+    let ingredientes = listado[0].getIngredients();
+    console.log("ddd");
+    console.log(ingredientes[0]);
+    let ingrediente1 = ingredientes[0];
+
+    textToParse = `{"dishes": [{`;
+    textToParse += `"dishname": "${listado[0].getDishName()}",`;
+    textToParse += `"plato": ${listado[0].getDishType()},`;
+    textToParse += `"Ingredients": [`;
+    textToParse += `{"name": "${ingrediente1[0].getName()}",`;
+    textToParse += `"location": "${ingrediente1[0].getLocation()}"}`;
+    textToParse += `]`;
+
+    textToParse += `}]}`;
+    /*
+    textToParse = `{"dishes": [{
+        "dishname": "${listado[0].getDishName()}",
+        "plato": ${listado[0].getDishType()},
+        "Ingredientes": ${listado[0].numberOfIngredients()},
+                                }]}`;
+                                */
 
     this.db99.get('Menus')
+    .push(JSON.parse(textToParse))
+    .write()
+
+    // Las maneras siguiente funcionan, pero no añaden los ingredientes
+    /*
+     this.db99.get('Menus')
     .push({dishes: listado})
     .write()
+    */
 
     /*
-    this.db99.get('Menus')
-    .push({dishes: menu.getDishes()})
+     this.db99.get('Menus')
+     .push({dishes: menu.getDishes()})
+     .write()
+    */
+
+
+     // We have to parse the string to the format that uses JSON with
+     // JSON.pase() function
+    
+    // if (this.database.has("Ingredients").value()) {
+    //   let dbItems = this.database.get("Ingredients").value();
+    //   dbItems.forEach((item: any) => this.ingredients.set(item.name, item.ingredient));
+
+    /*
+     this.db99.get('Menus')
+    .push({dishes: listado})
     .write()
     */
+
+    /*
+     this.db99.get('Menus')
+     .push({dishes: menu.getDishes()})
+     .write()
+    */
+
+
+    /*
+     this.db99.get('Menus')
+     .get('dishes')
+     .find({dishname: 'Espaguetis en salsa'})
+     .assign({dishname: 'Espogotes en solso'})
+     .write()
+     */
+
+     
+    // this.db99.get('Menus')
+    // .get('dishes')
+    // .push(dishName: dishes.getDishName(), plato: dishes.getDishType(), Ingredients: dishes.getIngredients())
+    // .write()
+    
+
     /*
     this.db99.get('Menus')
     .push({name: ingr.getName(), location: ingr.getLocation(),
@@ -121,10 +192,12 @@ gestorPlatos.addDefaults('d');
 // gestorPlatos.addDishToJSON(plato2);
 //console.log(gestorPlatos.retrieveDishFromJSON('Espaguetis en salsa'));
 
+/*
 console.table(menu1.getDishes());
 let listado: Array<Dish> = menu1.getDishes();
 console.log(listado[0]);
 console.table(menu1.getprice());
+*/
 
 
 let gestorMenus = new lowdbMenuManager('borrame3.json');

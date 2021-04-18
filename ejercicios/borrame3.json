@@ -3,56 +3,14 @@
     {
       "dishes": [
         {
-          "dishName": "Espaguetis en salsa",
+          "dishname": "Espaguetis en salsa",
           "plato": 1,
-          "Ingredients": {}
-        },
-        {
-          "dishName": "Tomates aliñados",
-          "plato": 0,
-          "Ingredients": {}
-        }
-      ]
-    },
-    {
-      "dishes": [
-        {
-          "dishName": "Espaguetis en salsa",
-          "plato": 1,
-          "Ingredients": {}
-        },
-        {
-          "dishName": "Tomates aliñados",
-          "plato": 0,
-          "Ingredients": {}
-        }
-      ]
-    },
-    {
-      "dishes": [
-        {
-          "dishName": "Espaguetis en salsa",
-          "plato": 1,
-          "Ingredients": {}
-        },
-        {
-          "dishName": "Tomates aliñados",
-          "plato": 0,
-          "Ingredients": {}
-        }
-      ]
-    },
-    {
-      "dishes": [
-        {
-          "dishName": "Espaguetis en salsa",
-          "plato": 1,
-          "Ingredients": {}
-        },
-        {
-          "dishName": "Tomates aliñados",
-          "plato": 0,
-          "Ingredients": {}
+          "Ingredients": [
+            {
+              "name": "tomates",
+              "location": "La Matanza"
+            }
+          ]
         }
       ]
     }

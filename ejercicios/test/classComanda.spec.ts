@@ -1,14 +1,13 @@
 import 'mocha';
-import { expect } from 'chai';
-import { Menu } from '../src/classMenu';
-import { Commanda } from '../src/classComanda';
-import { CustomerOrder } from '../src/classOrder';
-import { Ingredient } from '../src/classIngredient';
-import { tipoPlato, Dish } from '../src/claseDish';
+import {expect}from 'chai';
+import {Menu} from '../src/classMenu';
+import {Commanda} from '../src/classComanda';
+import {CustomerOrder} from '../src/classOrder';
+import {Ingredient} from '../src/classIngredient';
+import {tipoPlato, Dish} from '../src/claseDish';
 
 
 describe('Tests para las Comandas:', () => {
- 
   const ingr1 = new Ingredient('tomates', 'La Matanza', 4, 16, 12, 18, 32, 1.02);
   // const ingr2 = new Ingredient('ajos', 'La Orotava', 1, 22, 24, 26, 17, 0.62);
   const ingr3 = new Ingredient('chocolate', 'Tegueste', 1, 32, 40, 16, 9, 1.79);
@@ -37,5 +36,4 @@ describe('Tests para las Comandas:', () => {
     command.addComanda(new CustomerOrder(menu1, 2));
     expect(command.getAllComandas()).to.be.eql([new CustomerOrder(menu1, 1), new CustomerOrder(menu1, 2)]);
   });
-
 });
