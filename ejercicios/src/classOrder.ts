@@ -38,4 +38,9 @@ export class CustomerOrder {
    * @brief Get amount
    */
   getCantidad(): number {return this.cantidad;}
+
+  /**
+   * @brief Set amount
+   */
+  setCantidad(qt :number) {this.cantidad = qt;}
 };

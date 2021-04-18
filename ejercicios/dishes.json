@@ -1,0 +1,472 @@
+{
+  "dishes": [
+    {
+      "name": "Tomates aliñados",
+      "ingredients": [
+        [
+          "tomates",
+          175
+        ]
+      ],
+      "tipoPlato": "ENTRANTE"
+    },
+    {
+      "name": "Huevos estrellados",
+      "ingredients": [
+        [
+          "huevo",
+          175
+        ],
+        [
+          "patatas",
+          300
+        ]
+      ],
+      "tipoPlato": "ENTRANTE"
+    },
+    {
+      "name": "Tapa de anchoas y aceitunas",
+      "ingredients": [
+        [
+          "anchoas",
+          50
+        ],
+        [
+          "aceitunas",
+          50
+        ]
+      ],
+      "tipoPlato": "ENTRANTE"
+    },
+    {
+      "name": "Ensaladilla con croquetas",
+      "ingredients": [
+        [
+          "ensaladilla",
+          100
+        ],
+        [
+          "croquetas",
+          100
+        ]
+      ],
+      "tipoPlato": "ENTRANTE"
+    },
+    {
+      "name": "Tocino frito",
+      "ingredients": [
+        [
+          "tocino iberico",
+          125
+        ]
+      ],
+      "tipoPlato": "ENTRANTE"
+    },
+    {
+      "name": "Ensalada",
+      "ingredients": [
+        [
+          "lechuga",
+          80
+        ],
+        [
+          "esparragos",
+          40
+        ],
+        [
+          "tomate",
+          40
+        ]
+      ],
+      "tipoPlato": "ENTRANTE"
+    },
+    {
+      "name": "Queso frito",
+      "ingredients": [
+        [
+          "queso",
+          80
+        ]
+      ],
+      "tipoPlato": "ENTRANTE"
+    },
+    {
+      "name": "huevos rellenos",
+      "ingredients": [
+        [
+          "huevos",
+          100
+        ],
+        [
+          "bacalao",
+          50
+        ]
+      ],
+      "tipoPlato": "ENTRANTE"
+    },
+    {
+      "name": "Espaguetis en salsa",
+      "ingredients": [
+        [
+          "tomates",
+          12
+        ],
+        [
+          "espaguetis",
+          80
+        ]
+      ],
+      "tipoplato": "PRIMER_PLATO"
+    },
+    {
+      "name": "Crema de coliflor",
+      "ingredients": [
+        [
+          "coliflor",
+          75
+        ],
+        [
+          "leche evaporada entera",
+          200
+        ]
+      ],
+      "tipoplato": "PRIMER_PLATO"
+    },
+    {
+      "name": "Sopa simple de cereales",
+      "ingredients": [
+        [
+          "cereales",
+          275
+        ],
+        [
+          "huevo",
+          75
+        ]
+      ],
+      "tipoplato": "PRIMER_PLATO"
+    },
+    {
+      "name": "Bacalao encebollado",
+      "ingredients": [
+        [
+          "bacalao",
+          120
+        ],
+        [
+          "cebolla",
+          80
+        ]
+      ],
+      "tipoplato": "PRIMER_PLATO"
+    },
+    {
+      "name": "Potaje",
+      "ingredients": [
+        [
+          "potaje",
+          200
+        ]
+      ],
+      "tipoplato": "PRIMER_PLATO"
+    },
+    {
+      "name": "Popurri",
+      "ingredients": [
+        [
+          "anchoas",
+          200
+        ],
+        [
+          "aceitunas",
+          50
+        ],
+        [
+          "tomate",
+          60
+        ]
+      ],
+      "tipoplato": "PRIMER_PLATO"
+    },
+    {
+      "name": "Empanadillas",
+      "ingredients": [
+        [
+          "empanadillas",
+          200
+        ]
+      ],
+      "tipoplato": "PRIMER_PLATO"
+    },
+    {
+      "name": "Brochetas de gambas y bacalao",
+      "ingredients": [
+        [
+          "gambas",
+          213
+        ],
+        [
+          "bacalao",
+          200
+        ]
+      ],
+      "tipoplato": "PRIMER_PLATO"
+    },
+    {
+      "name": "Chorizo con patatas",
+      "ingredients": [
+        [
+          "chorizo",
+          200
+        ],
+        [
+          "patatas",
+          300
+        ]
+      ],
+      "tipoplato": "SEGUNDO_PLATO"
+    },
+    {
+      "name": "Repollos rellenos de anchoas",
+      "ingredients": [
+        [
+          "anchoas",
+          160
+        ],
+        [
+          "repollo chino",
+          320
+        ]
+      ],
+      "tipoplato": "SEGUNDO_PLATO"
+    },
+    {
+      "name": "Pechugas con rucula y queso",
+      "ingredients": [
+        [
+          "pechugas",
+          250
+        ],
+        [
+          "rucula",
+          100
+        ],
+        [
+          "queso",
+          50
+        ]
+      ],
+      "tipoplato": "SEGUNDO_PLATO"
+    },
+    {
+      "name": "Vegisalchichas en salsa de coco",
+      "ingredients": [
+        [
+          "salchicas vegetales",
+          250
+        ],
+        [
+          "coco",
+          100
+        ]
+      ],
+      "tipoplato": "SEGUNDO_PLATO"
+    },
+    {
+      "name": "Bacalao en salsa de pimientos",
+      "ingredients": [
+        [
+          "bacalao",
+          250
+        ],
+        [
+          "pimiento",
+          100
+        ],
+        [
+          "leche evaporada entera",
+          50
+        ]
+      ],
+      "tipoplato": "SEGUNDO_PLATO"
+    },
+    {
+      "name": "Verduras asadas",
+      "ingredients": [
+        [
+          "repollo chino",
+          60
+        ],
+        [
+          "pimiento",
+          65
+        ],
+        [
+          "patatas",
+          150
+        ],
+        [
+          "rucula",
+          25
+        ],
+        [
+          "coliflor",
+          20
+        ]
+      ],
+      "tipoplato": "SEGUNDO_PLATO"
+    },
+    {
+      "name": "Rabo de toro",
+      "ingredients": [
+        [
+          "rabo de toro",
+          60
+        ],
+        [
+          "pimiento",
+          143
+        ],
+        [
+          "patatas",
+          200
+        ],
+        [
+          "cebolla",
+          38
+        ]
+      ],
+      "tipoplato": "SEGUNDO_PLATO"
+    },
+    {
+      "name": "Pato a la naranja",
+      "ingredients": [
+        [
+          "pato",
+          168
+        ],
+        [
+          "naranja",
+          55
+        ]
+      ],
+      "tipoplato": "SEGUNDO_PLATO"
+    },
+    {
+      "name": "Churros con chocolate",
+      "ingredients": [
+        [
+          "churros",
+          200
+        ],
+        [
+          "chocolate",
+          95
+        ]
+      ],
+      "tipoplato": "POSTRE"
+    },
+    {
+      "name": "Natilla chocolate",
+      "ingredients": [
+        [
+          "natillas de chocolate",
+          175
+        ],
+        [
+          "fresa",
+          25
+        ]
+      ],
+      "tipoPlato": "POSTRE"
+    },
+    {
+      "name": "Piña natural",
+      "ingredients": [
+        [
+          "piña",
+          200
+        ]
+      ],
+      "tipoPlato": "POSTRE"
+    },
+    {
+      "name": "Tarta de nisperos",
+      "ingredients": [
+        [
+          "nispero",
+          200
+        ],
+        [
+          "huevo",
+          50
+        ],
+        [
+          "cereales",
+          100
+        ]
+      ],
+      "tipoPlato": "POSTRE"
+    },
+    {
+      "name": "Macedonia de frutas",
+      "ingredients": [
+        [
+          "nispero",
+          200
+        ],
+        [
+          "sandia",
+          75
+        ],
+        [
+          "coco fresco",
+          65
+        ]
+      ],
+      "tipoPlato": "POSTRE"
+    },
+    {
+      "name": "Cuajada de cerezas",
+      "ingredients": [
+        [
+          "cuajada",
+          250
+        ],
+        [
+          "picota",
+          75
+        ]
+      ],
+      "tipoPlato": "POSTRE"
+    },
+    {
+      "name": "Arroz con leche",
+      "ingredients": [
+        [
+          "arroz",
+          450
+        ],
+        [
+          "leche evaporada entera",
+          750
+        ]
+      ],
+      "tipoPlato": "POSTRE"
+    },
+    {
+      "name": "Platanos flambeados en jugo de naranja",
+      "ingredients": [
+        [
+          "platano macho",
+          450
+        ],
+        [
+          "naranja",
+          750
+        ]
+      ],
+      "tipoPlato": "POSTRE"
+    }
+  ]
+}
