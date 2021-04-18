@@ -2,7 +2,7 @@ const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 
 const adapter = new FileSync('ingredients.json');
-const db = low(adapter);
+const db = low(JSON.parse(adapter));
 
 // Create a default entry that will contain all the ingredients 
 db.defaults({ingredient: []})
