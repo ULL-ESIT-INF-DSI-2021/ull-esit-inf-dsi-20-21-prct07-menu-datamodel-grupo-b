@@ -39,7 +39,7 @@ export class JsonMenuList extends MenuList {
     }
       if (this.database.has("Dishes").value()) {
           let dbItems = this.database.get("Dishes").value();
-          dbItems.forEach(item => this.dishes.set(item.id, item.dish));
+          // dbItems.forEach(item => this.dishes.set(item.id, item.dish));
       } else {
           this.database.set("Dishes", dish).write();
           dish.forEach(item => this.dishes.set(item.getDishName(), item));

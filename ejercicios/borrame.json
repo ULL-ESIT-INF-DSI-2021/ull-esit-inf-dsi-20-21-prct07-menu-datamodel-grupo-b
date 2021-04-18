@@ -1,24 +1,3 @@
 {
-  "Ingredients": [
-    {
-      "name": "tomates",
-      "location": "La Matanza",
-      "group": 4,
-      "carbohydrates": 16,
-      "proteins": 12,
-      "lipids": 18,
-      "kcal": 32,
-      "price": 1.02
-    },
-    {
-      "name": "espaguetis",
-      "location": "La Matanza",
-      "group": 3,
-      "carbohydrates": 11,
-      "proteins": 12,
-      "lipids": 15,
-      "kcal": 32,
-      "price": 1.02
-    }
-  ]
+  "Ingredients": []
 }

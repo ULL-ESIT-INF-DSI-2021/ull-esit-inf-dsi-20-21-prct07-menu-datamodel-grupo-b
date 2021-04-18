@@ -1,81 +1,10 @@
 // vamos a probar añadir y traer ingredientes del JSON con una clase
 
+import {lowdbManager} from './classLowdbManager';
+import {lowdbIngredientManager} from './classLowdbIngredientManager';
 import {Ingredient} from './classIngredient';
 import {Dish} from './claseDish';
 import {tipoPlato} from './claseDish';
-
-//==============================================================================
-export abstract class lowdbManager {
-  protected readonly low99 = require('lowdb');
-  protected readonly FileSync99 = require('lowdb/adapters/FileSync');
-  protected adapter99: any;
-  protected db99: any;
-  protected mainEntryName: string = '';
-  protected fileName: string = '';
-
-  constructor(jsonFileName: string) {
-    this.fileName = jsonFileName;
-    this.adapter99 = new this.FileSync99(jsonFileName);
-    this.db99 = this.low99(this.adapter99);
-  }
-
-  abstract addDefaults(mainEntryName: string):void;
-
-  // 
-  /*
-  abstract addObjectToJSON():void {
-  }
-
-  // 
-  abstract retrieveIngredientFromJSON():void {
-  }
-  */
-}
-
-//==============================================================================
-export class lowdbIngredientManager extends lowdbManager {
-  constructor(jsonFileName: string) {
-    super(jsonFileName);
-  }
-
-  addDefaults(mainEntryName: string):void {
-    // Create a default entry that will contain all the ingredients 
-    // this.mainEntryName = mainEntryName;
-
-    this.db99.defaults({Ingredients: []})
-      .write()
-  }
-
-  // Insert an object's Ingredient class an insert it in the JSON file
-  addIngredientToJSON(ingr: Ingredient):void {
-    this.db99.get('Ingredients')
-    .push({name: ingr.getName(), location: ingr.getLocation(),
-      group: ingr.getGroup(), carbohydrates: ingr.getCarbohydrates(),
-      proteins: ingr.getProteins(), lipids: ingr.getLipids(),
-      kcal: ingr.getKcal(), price: ingr.getPrice()})
-    .write()
-  }
-
-  retrieveIngredientFromJSON(ingredientName: string): string{
-    // const database = this.low99(new this.FileSync99(this.fileName));
-
-    /*
-    console.log(this.db99.get('Ingredients')
-      .find({name: 'tomates'})
-      .value());
-    */
-
-    let objeto = this.db99.get('Ingredients')
-      .find({name: ingredientName})
-      .value();
-
-    return objeto;
-  }
-
-  retrieveAllIngredientsFromJSON(): string{
-    return this.db99.get("Ingredients").value();
-  }
-}
 
 //==============================================================================
 export class lowdbDishManager extends lowdbManager {
