@@ -26,12 +26,7 @@ describe('Test block class Menu', () => {
     it('getPrice in menu1', () => {
       expect(menu1.getprice()).to.be.equal('1.15');
     });
-  /*
-    it('getDishes in menu1', () => {
-      expect(menu1.dishesList()).to.be.equal(['Tomates aliñados', ['tomates',]);
-  
-    });
-  */
+
     it('getNutritionalComposition in menu2', () => {
       expect(menu2.nutritionalComposition()).to.have.members([ 150.72, 172.04, 101.66 ]);
     });

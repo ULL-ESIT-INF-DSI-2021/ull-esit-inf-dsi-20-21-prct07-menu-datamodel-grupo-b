@@ -1,3 +1,7 @@
+// Fichero que muestra como se pueden insertar ingredientes de la clase
+// Ingrediente en un fichero JSON, llamado "ingredients.json"
+
+
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 

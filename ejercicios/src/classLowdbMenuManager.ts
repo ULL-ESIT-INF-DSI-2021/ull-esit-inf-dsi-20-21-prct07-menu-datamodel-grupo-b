@@ -1,3 +1,9 @@
+// Clase que inserta Menus en un fichero JSON (parseandolo) y también devuelve
+// la información relativa de ese fichero JSON (Está sin terminar, problemas
+// con lowdb, no inserta los ingredientes de los platos, el resto de la
+// información sí lo hace)
+
+
 import {lowdbManager} from './classLowdbManager';
 import {Ingredient} from './classIngredient';
 import {Dish} from './claseDish';

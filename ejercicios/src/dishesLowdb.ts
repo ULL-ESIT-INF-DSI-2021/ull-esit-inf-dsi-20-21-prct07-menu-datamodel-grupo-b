@@ -1,3 +1,6 @@
+// En este fichero mostramos como añadir platos de la clase Dish a un fichero
+// JSON llamado "dishes.json"
+
 const low2 = require('lowdb');
 const FileSync2 = require('lowdb/adapters/FileSync');
 

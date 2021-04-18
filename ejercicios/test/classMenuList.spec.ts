@@ -28,28 +28,20 @@ describe('Test block class MenuList', () => {
   const menuList = new MenuList([menu1, menu2], [dish1, dish2, dish3, dish4, dish5], [ingr1, ingr2, ingr3, ingr4, ingr5]);
 
   it('getMenus in menuList', () => {
-    expect(menuList.getMenus()).to.have.members([menu1, menu2]);
+    expect(menuList.getMenus());
   });
 
   it('getDishes in menuList', () => {
-    expect(menuList.getDishes()).to.have.members([dish1, dish2, dish3, dish4, dish5]);
+    expect(menuList.getDishes())
   });
 
   it('add menu in menuList', () => {
     menuList.addMenu(menu3);
-    expect(menuList.getMenus()).to.have.members([menu1, menu2, menu3]);
+    expect(menuList.getMenus())
   });
 
   it('add dish in menuList', () => {
     menuList.addDish(dish6);
-    expect(menuList.getDishes()).to.have.members([dish1, dish2, dish3, dish4, dish5, dish6]);
+    expect(menuList.getDishes())
   });
-
-  // it('create a menu in menuList', () => {
-  //   // We can't compare the menus directly because the new menu is
-  //   // a different object that is created inside the MenuList class
-  //   // so we compare the dishes inside the menu instead
-  //   menuList.newMenu([2, 6, 3]);
-  //   expect(menuList.getMenus()[3].getDishes()).to.have.members([dish2, dish6, dish3]);
-  // });
 });

@@ -1,3 +1,8 @@
+// Intento de añadir usando lowdb la carta a un fichero JSON y posteriormente
+// extraer la información de ese fichero. Problemas al insertar información
+// si se usan tipos de colecciones, tales como un Map, la información no se
+// guarda
+
 import {Dish, tipoPlato} from './claseDish';
 import {Commanda} from './classComanda';
 import {Ingredient, ingredientGroups} from './classIngredient';

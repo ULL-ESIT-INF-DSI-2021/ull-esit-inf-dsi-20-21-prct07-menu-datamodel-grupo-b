@@ -1,4 +1,5 @@
-// vamos a probar añadir y traer ingredientes del JSON con una clase
+// Clase que inserta platos en un fichero JSON y recupera esa información
+// cuando sea necesario.
 
 import {lowdbManager} from './classLowdbManager';
 import {lowdbIngredientManager} from './classLowdbIngredientManager';
