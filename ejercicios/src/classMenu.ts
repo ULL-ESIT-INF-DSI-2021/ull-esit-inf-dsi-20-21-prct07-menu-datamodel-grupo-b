@@ -46,7 +46,7 @@ export class Menu {
      * with the sum of the price of each Dish.
      * @returns A number with the total price
      */
-    get price() {
+    getprice() {
         let sumPriceDishes = 0;
         this.dishes.forEach(element => {
             sumPriceDishes += element.totalPrice();

@@ -24,7 +24,7 @@ describe('Test block class Menu', () => {
   
   
     it('getPrice in menu1', () => {
-      expect(menu1.price).to.be.equal('1.15');
+      expect(menu1.getprice()).to.be.equal('1.15');
     });
   /*
     it('getDishes in menu1', () => {

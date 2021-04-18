@@ -28,11 +28,20 @@ export class lowdbMenuManager extends lowdbManager {
   }
 
   // Insert an object's Menu class an insert it in the JSON file
-  addIngredientToJSON(menu: Menu):void {
+  addMenu(menu: Menu):void {
     // TODO CAMBIARLO
+
+    let listado: Array<Dish> = menu1.getDishes();
+
+    this.db99.get('Menus')
+    .push({dishes: listado})
+    .write()
+
+    /*
     this.db99.get('Menus')
     .push({dishes: menu.getDishes()})
     .write()
+    */
     /*
     this.db99.get('Menus')
     .push({name: ingr.getName(), location: ingr.getLocation(),
@@ -112,5 +121,12 @@ gestorPlatos.addDefaults('d');
 // gestorPlatos.addDishToJSON(plato2);
 //console.log(gestorPlatos.retrieveDishFromJSON('Espaguetis en salsa'));
 
+console.table(menu1.getDishes());
+let listado: Array<Dish> = menu1.getDishes();
+console.log(listado[0]);
+console.table(menu1.getprice());
+
+
 let gestorMenus = new lowdbMenuManager('borrame3.json');
 gestorMenus.addDefaults('Menus');
+gestorMenus.addMenu(menu1);

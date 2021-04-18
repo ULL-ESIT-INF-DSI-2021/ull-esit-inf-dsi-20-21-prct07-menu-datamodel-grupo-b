@@ -361,8 +361,6 @@ Es un conjunto de menús y platos individuales. Al igual que en claseDish, se us
 
 A modo de conclusión, nos ha resultado muy interesante la práctica para poner en práctica con mayor profundidad el uso de las clases y objetos en Typescript. Sin embargo, nos ha costado entender los módulos de Inquirer y del paquete Lowdb para la gestión de una línea de comandos interactiva. 
 
-
-
 Por último, se ha generado la documentación en HTML mediante TypeDoc y se han realizado las respectivas pruebas unitarias. 
 
 ## 6. Referencias
