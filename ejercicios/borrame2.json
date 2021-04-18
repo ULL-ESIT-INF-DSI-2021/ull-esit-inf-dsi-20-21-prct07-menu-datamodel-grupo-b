@@ -1,0 +1,97 @@
+{
+  "Dishes": [
+    {
+      "name": "Espaguetis en salsa",
+      "ingredients": [
+        [
+          {
+            "name": "tomates",
+            "location": "La Matanza",
+            "group": 4,
+            "carbohydrates": 16,
+            "protein": 12,
+            "lipids": 18,
+            "kcal": 32,
+            "price": 1.02,
+            "nutritionalComposition": [
+              [
+                "carbohydrates",
+                16
+              ],
+              [
+                "protein",
+                12
+              ],
+              [
+                "lipids",
+                18
+              ]
+            ]
+          },
+          12
+        ],
+        [
+          {
+            "name": "espaguetis",
+            "location": "La Matanza",
+            "group": 3,
+            "carbohydrates": 11,
+            "protein": 12,
+            "lipids": 15,
+            "kcal": 32,
+            "price": 1.02,
+            "nutritionalComposition": [
+              [
+                "carbohydrates",
+                11
+              ],
+              [
+                "protein",
+                12
+              ],
+              [
+                "lipids",
+                15
+              ]
+            ]
+          },
+          80
+        ]
+      ],
+      "proteins": 1
+    },
+    {
+      "name": "Tomates aliñados",
+      "ingredients": [
+        [
+          {
+            "name": "tomates",
+            "location": "La Matanza",
+            "group": 4,
+            "carbohydrates": 16,
+            "protein": 12,
+            "lipids": 18,
+            "kcal": 32,
+            "price": 1.02,
+            "nutritionalComposition": [
+              [
+                "carbohydrates",
+                16
+              ],
+              [
+                "protein",
+                12
+              ],
+              [
+                "lipids",
+                18
+              ]
+            ]
+          },
+          175
+        ]
+      ],
+      "proteins": 0
+    }
+  ]
+}
