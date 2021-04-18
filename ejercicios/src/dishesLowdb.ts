@@ -2,7 +2,7 @@ const low2 = require('lowdb');
 const FileSync2 = require('lowdb/adapters/FileSync');
 
 const adapter2 = new FileSync2('dishes.json');
-const db2 = low2(adapter2);
+const db2 = low2(JSON.parse(adapter2));
 
 // Create a default entry that will contain all the dishes 
 db2.defaults({dishes: []})
