@@ -452,6 +452,11 @@ Por último, se ha generado la documentación en HTML mediante TypeDoc y se han 
 
 [![Coverage Status](https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct07-menu-datamodel-grupo-b/badge.svg?branch=master)](https://coveralls.io/github/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct07-menu-datamodel-grupo-b?branch=master)
 
+## 6. Miembros del grupo que han trabajado
+- Laura Cañizares Herrera
+- Manuel Ramon Regalado Peraza 
+- Alberto 
+
 
 ## 6. Referencias
 1. [Guión práctica 7](https://ull-esit-inf-dsi-2021.github.io/prct07-menu-dataModel/)
